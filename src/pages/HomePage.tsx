@@ -1,0 +1,36 @@
+import BannerSection from '../components/sections/BannerSection';
+import HeroSection from '../components/sections/HeroSection';
+import AIWeekendSection from '../components/sections/AIWeekendSection';
+import PricingSection from '../components/sections/PricingSection';
+import CurriculumSection from '../components/sections/CurriculumSection';
+import ProjectsSection from '../components/sections/ProjectsSection';
+import MentorSection from '../components/sections/MentorSection';
+
+const HomePage = () => {
+  return (
+    <div className="min-h-screen">
+      {/* Temporary Banner - First 40 students FREE */}
+      <BannerSection />
+
+      {/* Hero Section - Main CTA */}
+      <HeroSection />
+
+      {/* AI Weekend Section */}
+      <AIWeekendSection />
+
+      {/* Pricing Section */}
+      <PricingSection />
+
+      {/* Curriculum Section with Expandable Modules */}
+      <CurriculumSection />
+
+      {/* Projects Section */}
+      <ProjectsSection />
+
+      {/* Mentor Section */}
+      <MentorSection />
+    </div>
+  );
+};
+
+export default HomePage;
