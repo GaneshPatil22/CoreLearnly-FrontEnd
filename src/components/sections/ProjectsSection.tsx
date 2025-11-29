@@ -164,7 +164,7 @@ const ProjectsSection = () => {
           className="text-center mt-12"
         >
           <p className="text-dark-text-secondary mb-4">
-            Each project includes source code, documentation, and deployment guide
+            Each case study includes architecture diagrams, design documents, and detailed analysis
           </p>
         </motion.div>
       </motion.div>

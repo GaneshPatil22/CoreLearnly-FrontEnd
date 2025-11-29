@@ -10,9 +10,9 @@ const BannerSection = () => {
     >
       <div className="section-container py-4">
         <p className="text-center text-white font-medium text-sm md:text-base flex items-center justify-center gap-2">
-          <span className="text-2xl">🚀</span>
+          <span className="text-2xl">🎉</span>
           <span>
-            Just starting — our first 2-month batch is <span className="font-bold text-gradient">FREE</span> until we reach 40 students.
+            <span className="font-bold text-gradient">FREE</span> 8-hour workshop + First 20 students get Basic Module (2 months) <span className="font-bold text-gradient">FREE</span> — Save ₹4,000!
           </span>
         </p>
       </div>

@@ -21,11 +21,11 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
         >
-          Master{' '}
+          Ace{' '}
           <span className="text-gradient">DSA</span>,{' '}
           <span className="text-gradient">System Design</span>
           <br />
-          & Build Real Projects
+          & <span className="text-gradient">AI-Powered</span> Career Growth
         </motion.h1>
 
         {/* Subheading */}
@@ -35,8 +35,8 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl lg:text-2xl text-dark-text-secondary mb-12 max-w-3xl mx-auto"
         >
-          Learn from industry experts, build production-ready projects,
-          and master the skills that top tech companies demand.
+          Master Data Structures, Algorithms, and System Design through live instruction,
+          solve architectural challenges of top tech products, and harness AI for your career growth.
         </motion.p>
 
         {/* CTA Buttons */}

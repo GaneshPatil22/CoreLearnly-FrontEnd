@@ -2,6 +2,64 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Business Model
+
+**CoreLearnly** is an online education platform for technical interview preparation and software engineering fundamentals.
+
+### Course Overview
+- **Instructor**: Single instructor (solo educator model)
+- **Duration**: 6 months intensive program
+- **Format**: Live online classes
+- **Target Audience**:
+  - Students preparing for placements
+  - Working professionals preparing for interviews
+  - Career switchers into tech
+  - Anyone looking to strengthen DSA and system design skills
+
+### Curriculum
+The program covers four main areas:
+
+1. **DSA (Data Structures & Algorithms)**
+   - Core data structures
+   - Algorithm design and analysis
+   - Problem-solving techniques
+   - Interview-focused practice
+
+2. **LLD (Low Level Design)**
+   - Object-oriented design principles
+   - Design patterns
+   - Component-level architecture
+   - System design case studies
+
+3. **HLD (High Level Design)**
+   - Scalable system architecture
+   - Distributed systems concepts
+   - Real-world case studies (Uber, Netflix, etc.)
+   - System design interviews preparation
+
+4. **AI Fundamentals**
+   - Basic AI concepts and understanding
+   - How to use various AI tools effectively
+   - AI-powered productivity (e.g., optimizing LinkedIn profiles)
+   - Practical AI applications for developers
+
+### Schedule
+- **Weekdays**: 3 DSA classes per week
+- **Weekends**: 1 AI-related class every weekend
+
+### Important Distinctions
+- **NO coding projects**: The program does NOT include building applications using programming languages
+- **Design-focused projects**: All projects are system design case studies and architecture exercises
+- **Theory + Design**: Focus is on conceptual understanding, problem-solving, and design thinking rather than implementation
+
+### Content Tone & Voice
+When writing content for this website:
+- Use singular first-person perspective ("I teach", "Learn with me") - NOT plural ("we", "our team")
+- Emphasize personalized mentorship and direct instruction
+- Avoid phrases like "industry experts" or "team of instructors"
+- Focus on the hands-on, practical nature of system design learning
+- Highlight the live, interactive format
+
 ## Project Overview
 
 CoreLearnly-Frontend is a React 19 + TypeScript application built with Vite (using rolldown-vite 7.2.5 as the build tool). The project uses SWC for Fast Refresh and includes ESLint for code quality.

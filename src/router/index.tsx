@@ -2,7 +2,10 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import HomePage from '../pages/HomePage';
 import ApplyPage from '../pages/ApplyPage';
+import WorkshopPage from '../pages/WorkshopPage';
+import WorkshopConfirmationPage from '../pages/WorkshopConfirmationPage';
 import PrivacyPolicyPage from '../pages/PrivacyPolicyPage';
+import TermsPage from '../pages/TermsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 export const router = createBrowserRouter([
@@ -27,8 +30,20 @@ export const router = createBrowserRouter([
     element: <MainLayout><ApplyPage /></MainLayout>,
   },
   {
+    path: '/workshop',
+    element: <MainLayout><WorkshopPage /></MainLayout>,
+  },
+  {
+    path: '/workshop-confirmation',
+    element: <MainLayout><WorkshopConfirmationPage /></MainLayout>,
+  },
+  {
     path: '/privacy-policy',
     element: <MainLayout><PrivacyPolicyPage /></MainLayout>,
+  },
+  {
+    path: '/terms',
+    element: <MainLayout><TermsPage /></MainLayout>,
   },
   {
     path: '*',

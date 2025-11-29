@@ -33,10 +33,10 @@ const MentorSection = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Learn Directly From{' '}
-            <span className="text-gradient">Industry Experts</span>
+            <span className="text-gradient">Your Mentor</span>
           </h2>
           <p className="text-lg text-dark-text-secondary max-w-3xl mx-auto">
-            Get personalized guidance and mentorship from experienced professionals
+            Get personalized guidance and live mentorship from an experienced professional
           </p>
         </div>
 
@@ -109,28 +109,6 @@ const MentorSection = () => {
           </div>
         </div>
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 text-center"
-        >
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-6 py-3">
-            <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span className="text-white font-medium">
-              Live doubt-solving sessions twice a week
-            </span>
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   );

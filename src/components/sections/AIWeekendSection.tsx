@@ -34,37 +34,37 @@ const AIWeekendSection = () => {
 
             {/* Heading */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              AI is Transforming <span className="text-gradient">Everything</span>
+              Master AI <span className="text-gradient">Fundamentals</span>
             </h2>
 
             {/* Description */}
             <p className="text-lg md:text-xl text-dark-text-secondary mb-8">
-              Every weekend, we explore cutting-edge AI tools, build AI-powered projects,
-              and learn how to practically apply artificial intelligence in software engineering.
-              Stay ahead of the curve in the AI revolution.
+              Every weekend, you'll learn AI fundamentals, master powerful AI tools,
+              and discover how to leverage artificial intelligence to accelerate your career.
+              One focused session each weekend to keep you ahead in the AI revolution.
             </p>
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
               <div className="text-center">
                 <div className="text-4xl mb-3">🤖</div>
-                <h3 className="text-white font-semibold mb-2">AI Tools</h3>
+                <h3 className="text-white font-semibold mb-2">AI Tools Mastery</h3>
                 <p className="text-sm text-dark-text-muted">
-                  Master ChatGPT, GitHub Copilot, and more
+                  Learn ChatGPT, GitHub Copilot, and cutting-edge AI tools
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-4xl mb-3">🚀</div>
-                <h3 className="text-white font-semibold mb-2">Build Projects</h3>
+                <div className="text-4xl mb-3">💼</div>
+                <h3 className="text-white font-semibold mb-2">Career Optimization</h3>
                 <p className="text-sm text-dark-text-muted">
-                  Create real AI-powered applications
+                  Optimize your LinkedIn, resume, and profile using AI
                 </p>
               </div>
               <div className="text-center">
                 <div className="text-4xl mb-3">💡</div>
-                <h3 className="text-white font-semibold mb-2">Practical Skills</h3>
+                <h3 className="text-white font-semibold mb-2">AI Fundamentals</h3>
                 <p className="text-sm text-dark-text-muted">
-                  Apply AI to solve real engineering problems
+                  Understand core AI concepts and practical applications
                 </p>
               </div>
             </div>

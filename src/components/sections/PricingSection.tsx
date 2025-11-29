@@ -54,19 +54,19 @@ const PricingSection = () => {
                 <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-dark-text-secondary">6+ real-world production projects</span>
+                <span className="text-dark-text-secondary">6+ real-world system design case studies</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-dark-text-secondary">Live mentorship from industry experts</span>
+                <span className="text-dark-text-secondary">Live personal mentorship and guidance</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-dark-text-secondary">AI tools & techniques every weekend</span>
+                <span className="text-dark-text-secondary">AI fundamentals & tools every weekend</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ const PricingSection = () => {
             </Link>
 
             <p className="text-sm text-dark-text-muted mt-6">
-              💰 First 40 students get 60% OFF for entire 6-month course | Limited seats available
+              💰 First 20 students get Basic Module (2 months) FREE | Save ₹4,000 | Limited seats available
             </p>
           </div>
         </div>

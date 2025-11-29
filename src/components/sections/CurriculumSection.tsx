@@ -204,7 +204,7 @@ const CurriculumSection = () => {
             Complete <span className="text-gradient">Curriculum</span>
           </h2>
           <p className="text-lg text-dark-text-secondary max-w-3xl mx-auto">
-            180 days (6 months) intensive training - 90 classes covering DSA, System Design, and Real Projects
+            180 days (6 months) intensive training - 90 classes covering DSA, System Design, and Design Case Studies
           </p>
         </div>
 

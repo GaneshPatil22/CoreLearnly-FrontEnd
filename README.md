@@ -236,7 +236,7 @@ This project is private and proprietary.
 ## 👨‍💻 Author
 
 **CoreLearnly Team**
-- Email: contact@corelearnly.com
+- Email: corelearnly@gmail.com
 - Website: https://corelearnly.com
 
 ## 🙏 Acknowledgments
