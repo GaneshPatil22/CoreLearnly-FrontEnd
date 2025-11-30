@@ -19,14 +19,15 @@ export const initGA = (): void => {
 
   // Initialize dataLayer
   window.dataLayer = window.dataLayer || [];
-  function gtag(...args: unknown[]) {
-    window.dataLayer.push(args);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function gtag(...args: any[]) {
+    window.dataLayer.push(arguments);
   }
   window.gtag = gtag;
 
   gtag('js', new Date());
   gtag('config', GA_MEASUREMENT_ID, {
-    send_page_view: false, // We'll manually track page views
+    send_page_view: true, // Enable automatic page views
   });
 
   console.log('Google Analytics 4 initialized');
