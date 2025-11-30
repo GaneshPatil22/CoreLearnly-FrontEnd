@@ -20,7 +20,8 @@ export const initGA = (): void => {
   // Initialize dataLayer
   window.dataLayer = window.dataLayer || [];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function gtag(...args: any[]) {
+  function gtag(..._args: any[]) {
+    // Using arguments object as required by Google Analytics
     window.dataLayer.push(arguments);
   }
   window.gtag = gtag;
