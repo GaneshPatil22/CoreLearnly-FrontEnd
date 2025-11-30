@@ -358,14 +358,14 @@ const WorkshopPage = () => {
           <div className="card border-primary/30 bg-gradient-to-br from-dark-card to-dark-bg">
             <div className="text-center p-8 md:p-12">
               <div className="inline-block bg-gradient-to-r from-primary to-purple-600 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
-                Exclusive Workshop Offer
+                Early Bird Offer
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Join the Full Course & Get{' '}
                 <span className="text-gradient">2 Months FREE</span>
               </h2>
               <p className="text-lg text-dark-text-secondary mb-6 max-w-2xl mx-auto">
-                First 20 workshop attendees who enroll in the full 6-month CoreLearnly course
+                The first 20 students who enroll in the full 6-month CoreLearnly course
                 get the Basic Module (2 months) absolutely FREE!
               </p>
               <div className="flex items-center justify-center gap-4 mb-8">
@@ -505,7 +505,7 @@ const WorkshopPage = () => {
               },
               {
                 q: 'Is this workshop connected to the full course?',
-                a: 'The workshop is standalone and completely FREE. However, workshop attendees get a special offer: first 20 students who enroll in the full 6-month course get 2 months FREE (save ₹4,000)!',
+                a: 'The workshop is standalone and completely FREE. It\'s a great way to experience my teaching style! Plus, the first 20 students who enroll in the full 6-month course get 2 months FREE (save ₹4,000)!',
               },
             ].map((faq, index) => (
               <motion.div

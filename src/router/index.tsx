@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import HomePage from '../pages/HomePage';
 import ApplyPage from '../pages/ApplyPage';
+import ApplyConfirmationPage from '../pages/ApplyConfirmationPage';
 import WorkshopPage from '../pages/WorkshopPage';
 import WorkshopConfirmationPage from '../pages/WorkshopConfirmationPage';
 import PrivacyPolicyPage from '../pages/PrivacyPolicyPage';
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
   {
     path: '/apply',
     element: <MainLayout><ApplyPage /></MainLayout>,
+  },
+  {
+    path: '/apply-confirmation',
+    element: <MainLayout><ApplyConfirmationPage /></MainLayout>,
   },
   {
     path: '/workshop',

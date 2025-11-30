@@ -1,7 +1,32 @@
 import { motion } from 'framer-motion';
-import ApplicationForm from '../components/sections/ApplicationForm';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ApplyPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Load Tally embed script
+    const script = document.createElement('script');
+    script.src = 'https://tally.so/widgets/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Listen for Tally form submission
+    const handleTallyMessage = (event: MessageEvent) => {
+      if (event.data?.type === 'tally.form.submitted') {
+        navigate('/apply-confirmation');
+      }
+    };
+
+    window.addEventListener('message', handleTallyMessage);
+
+    return () => {
+      document.body.removeChild(script);
+      window.removeEventListener('message', handleTallyMessage);
+    };
+  }, [navigate]);
+
   return (
     <div className="section-container py-16 md:py-24">
       <motion.div
@@ -14,17 +39,29 @@ const ApplyPage = () => {
           Apply to <span className="text-gradient">CoreLearnly</span>
         </h1>
         <p className="text-lg text-dark-text-secondary max-w-2xl mx-auto">
-          Take the first step towards mastering DSA, System Design, and building real-world projects.
-          Fill out the form below and we'll get back to you within 24 hours.
+          Take the first step towards mastering DSA, System Design, and AI-powered career growth.
+          Fill out the form below and I'll get back to you within 24 hours.
         </p>
       </motion.div>
 
+      {/* Tally Form Embed */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
+        className="max-w-2xl mx-auto"
       >
-        <ApplicationForm />
+        <iframe
+          data-tally-src="https://tally.so/embed/81NAkr?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="915"
+          frameBorder="0"
+          marginHeight={0}
+          marginWidth={0}
+          title="Course Application Form"
+          className="rounded-lg"
+        ></iframe>
       </motion.div>
 
       {/* Additional Info */}
@@ -43,7 +80,7 @@ const ApplyPage = () => {
           </div>
           <div className="flex items-center gap-2 text-dark-text-secondary">
             <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0121 12c0 6.627-5.373 12-12 12S-3 18.627-3 12 1.373 0 9 0c4.325 0 8.066 2.285 10.167 5.708z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 21C5.373 21 0 15.627 0 9a11.955 11.955 0 015.708-10.167A9.969 9.969 0 0112 0a9.969 9.969 0 016.292 2.833A11.955 11.955 0 0124 9c0 6.627-5.373 12-12 12z" />
             </svg>
             <span>No commitment required</span>
           </div>
