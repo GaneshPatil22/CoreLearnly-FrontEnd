@@ -60,6 +60,29 @@ When writing content for this website:
 - Focus on the hands-on, practical nature of system design learning
 - Highlight the live, interactive format
 
+## Domain & Email Configuration
+
+### Website
+- **Production URL**: https://corelearnly.com
+- **Hosting**: Netlify
+- **DNS**: Managed by Netlify (nsone.net nameservers)
+
+### Email Addresses
+| Email | Purpose |
+|-------|---------|
+| `corelearnly@gmail.com` | Primary account (connected to all services) |
+| `hello@corelearnly.com` | Automated emails, Brevo, website contact forms |
+| `ganesh@corelearnly.com` | Personal communication, 1-on-1 with students |
+
+### Email Provider
+- **Provider**: Hostinger Email (₹25/user/month)
+- **Domain**: corelearnly.com
+
+### Usage Guidelines
+- Use `hello@corelearnly.com` for: Workshop confirmations, reminders, automated sequences, marketing
+- Use `ganesh@corelearnly.com` for: Personal follow-ups, student replies, direct communication
+- Use `corelearnly@gmail.com` for: Service signups, account recovery, backups
+
 ## Project Overview
 
 CoreLearnly-Frontend is a React 19 + TypeScript application built with Vite (using rolldown-vite 7.2.5 as the build tool). The project uses SWC for Fast Refresh and includes ESLint for code quality.

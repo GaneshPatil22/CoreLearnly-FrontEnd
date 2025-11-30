@@ -1,1 +1,5 @@
+# Redirect netlify subdomain to main domain (SEO best practice)
+https://corelearnly.netlify.app/* https://corelearnly.com/:splat 301!
+
+# SPA fallback - send all routes to index.html
 /*  /index.html  200
