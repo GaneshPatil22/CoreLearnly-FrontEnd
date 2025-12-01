@@ -1,0 +1,33 @@
+Idea,Pillar,Best Platform,Priority,Format,Notes
+Two Pointers technique explained,DSA,All,High,Carousel/Thread,Great for beginners - visual works well
+Sliding Window pattern,DSA,All,High,Carousel/Thread,Common interview pattern
+Binary Search variations,DSA,All,High,Carousel,Show different use cases
+HashMap problem solving patterns,DSA,All,Medium,Carousel,Very practical
+Stack problems decoded,DSA,All,Medium,Carousel,Parentheses and similar
+BFS vs DFS - when to use which,DSA,All,High,Carousel/Reel,Visual comparison works great
+Dynamic Programming roadmap,DSA,All,High,Carousel,Break the fear of DP
+Recursion to DP conversion,DSA,All,Medium,Thread,Step by step approach
+My first interview failure story,Personal,LI Personal,High,Text Post,Relatable vulnerability
+How I prepared for FAANG interviews,Personal,LI Personal,High,Text Post,Practical tips from experience
+Why I started teaching,Personal,LI Personal,Medium,Text Post,Origin story
+Biggest mistakes in my career,Personal,LI Personal,Medium,Text Post,Lessons learned
+How Netflix handles 200M users,System Design,All,High,Carousel/Thread,Popular case study
+URL shortener design,System Design,All,High,Carousel,Classic interview question
+Rate limiter design,System Design,All,High,Carousel,Practical and asked often
+Database scaling strategies,System Design,All,Medium,Carousel,HLD fundamental
+CAP theorem simplified,System Design,All,Medium,Carousel,Theory made practical
+Load balancer types explained,System Design,All,Medium,Carousel,Infrastructure basics
+Resume mistakes that cost offers,Career,LI Personal,High,Text Post,Actionable advice
+How to answer Tell me about yourself,Career,LI Personal,High,Text Post/Reel,Common struggle
+Salary negotiation tips,Career,LI Personal,High,Text Post,High engagement topic
+Red flags in tech interviews,Career,LI Personal,Medium,Carousel,Both sides perspective
+How to handle rejection,Career,LI Personal,Medium,Text Post,Supportive content
+What interviewers actually look for,Career,LI Personal,High,Text Post,Insider perspective
+SOLID principles simplified,System Design,All,Medium,Carousel,LLD fundamental
+Design patterns every dev should know,System Design,All,Medium,Carousel,Practical patterns
+API design best practices,System Design,All,Medium,Carousel,Real world applicable
+Workshop Day 1 preview,Promo,All,High,Carousel,Build anticipation
+Workshop Day 2 preview,Promo,All,High,Carousel,Build anticipation
+Why free workshop?,Promo,LI Personal,High,Text Post,Address objections
+What you'll learn in 6 months,Promo,LI Company,High,Carousel,Course overview
+Student transformation stories,Promo,All,High,Text Post,Future testimonials

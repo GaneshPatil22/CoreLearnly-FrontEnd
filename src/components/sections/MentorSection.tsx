@@ -8,7 +8,7 @@ const MentorSection = () => {
     description:
       '8+ years of experience in software development with expertise in iOS, System Design, and Data Structures & Algorithms. Passionate about teaching and helping developers master complex concepts through hands-on learning. Specialized in building scalable mobile applications and designing robust systems. Strong background in multiple domains including web development, game development, and cross-platform solutions.',
     image: '/mentor.jpg',
-    linkedin: 'https://linkedin.com/in/ganeshpatil',
+    linkedin: 'https://www.linkedin.com/in/ganesh-patil-2b3431119/',
     expertise: [
       'System Design (HLD & LLD)',
       'Data Structures & Algorithms',
