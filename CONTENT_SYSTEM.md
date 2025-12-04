@@ -52,7 +52,7 @@
 **Tone**: Professional but friendly, informative, authoritative
 
 **Example**:
-> "🎯 Workshop Alert: Free 2-day DSA + System Design workshop on Jan 11-12. Limited to 50 seats. Register now: [link]"
+> "🎯 Workshop Alert: Free 2-day DSA + System Design workshop on Jan 10-11. Limited to 50 seats. Register now: [link]"
 
 ### Cross-Posting Rule
 ```

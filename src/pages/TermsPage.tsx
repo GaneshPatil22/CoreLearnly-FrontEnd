@@ -72,7 +72,7 @@ const TermsPage = () => {
 
                 <h3 className="text-xl font-semibold text-white mb-3 mt-4">4.2 Attendance</h3>
                 <ul className="list-disc pl-6 space-y-2 mb-4">
-                  <li>Workshop is scheduled for January 11-12, 2025, from 10:00 AM to 2:00 PM IST each day.</li>
+                  <li>Workshop is scheduled for January 10-11, 2026, from 10:00 AM to 2:00 PM IST each day.</li>
                   <li>Attendance is optional but recommended for both days.</li>
                   <li>We will provide recordings to registered participants who cannot attend live.</li>
                   <li>We reserve the right to reschedule the workshop due to unforeseen circumstances.</li>

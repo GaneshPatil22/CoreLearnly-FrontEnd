@@ -75,7 +75,7 @@ If you have corelearnly.com domain:
 
 **List 1: Workshop Registrants**
 - Name: "Workshop Jan 2025"
-- Description: "Students registered for Jan 11-12 workshop"
+- Description: "Students registered for Jan 10-11 workshop"
 
 **List 2: Attended Workshop**
 - Name: "Workshop Attendees Jan 2025"
@@ -101,7 +101,7 @@ If you have corelearnly.com domain:
 **Templates to Create:**
 
 1. **01_Workshop_Confirmation**
-   - Subject: You're Registered! CoreLearnly FREE Workshop - Jan 11-12
+   - Subject: You're Registered! CoreLearnly FREE Workshop - Jan 10-11
    - Copy content from EMAIL_TEMPLATES.md Template #1
 
 2. **02_Reminder_5Days**
@@ -168,12 +168,12 @@ If you have corelearnly.com domain:
 **Action 4: Send Day 1 Morning Reminder**
 - Type: Send email
 - Template: 04_Morning_Reminder_Day1
-- Delay: Wait until January 11, 2025, 8:00 AM IST
+- Delay: Wait until January 10, 2026, 8:00 AM IST
 
 **Action 5: Send Day 2 Morning Reminder**
 - Type: Send email
 - Template: 05_Morning_Reminder_Day2
-- Delay: Wait until January 12, 2025, 8:00 AM IST
+- Delay: Wait until January 11, 2026, 8:00 AM IST
 
 **Action 6: Send Thank You + Offer**
 - Type: Send email
@@ -200,8 +200,8 @@ If automation is limited on free plan, you can send emails manually:
 2. **Immediately after registration:** Send Template #1 (Confirmation) manually to each new contact
 3. **Jan 6:** Send Template #2 (Reminder 1) to entire "Workshop Jan 2025" list
 4. **Jan 10:** Send Template #3 (Zoom link) to entire list
-5. **Jan 11 morning:** Send Template #4 (Day 1 reminder) to entire list
-6. **Jan 12 morning:** Send Template #5 (Day 2 reminder) to entire list
+5. **Jan 10 morning:** Send Template #4 (Day 1 reminder) to entire list
+6. **Jan 11 morning:** Send Template #5 (Day 2 reminder) to entire list
 7. **Jan 13:** Send Template #6 (Thank you) to entire list
 8. **Jan 16:** Send Template #7 (Follow-up) to those who haven't replied
 

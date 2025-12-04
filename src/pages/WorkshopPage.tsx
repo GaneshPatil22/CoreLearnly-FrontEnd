@@ -45,7 +45,7 @@ const WorkshopPage = () => {
                 <svg className="w-10 h-10 text-primary mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <div className="text-white font-bold text-lg mb-1">Jan 11-12, 2025</div>
+                <div className="text-white font-bold text-lg mb-1">Jan 10-11, 2026</div>
                 <div className="text-dark-text-secondary text-sm">Saturday & Sunday</div>
               </div>
             </div>
@@ -272,7 +272,7 @@ const WorkshopPage = () => {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white">Data Structures & Algorithms</h3>
-                    <p className="text-dark-text-secondary">Saturday, Jan 11 • 10:00 AM - 2:00 PM IST</p>
+                    <p className="text-dark-text-secondary">Saturday, Jan 10 • 10:00 AM - 2:00 PM IST</p>
                   </div>
                 </div>
                 <div className="space-y-4 ml-0 md:ml-20">
@@ -315,7 +315,7 @@ const WorkshopPage = () => {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white">AI Tools & System Design</h3>
-                    <p className="text-dark-text-secondary">Sunday, Jan 12 • 10:00 AM - 2:00 PM IST</p>
+                    <p className="text-dark-text-secondary">Sunday, Jan 11 • 10:00 AM - 2:00 PM IST</p>
                   </div>
                 </div>
                 <div className="space-y-4 ml-0 md:ml-20">

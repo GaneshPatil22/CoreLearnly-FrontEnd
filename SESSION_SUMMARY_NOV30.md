@@ -235,7 +235,7 @@ When you return, start with these tasks in order:
 ### Go-Live (Dec 15):
 - Announce workshop publicly
 - Start collecting registrations
-- Build momentum for Jan 11-12 workshop
+- Build momentum for Jan 10-11 workshop
 
 ---
 

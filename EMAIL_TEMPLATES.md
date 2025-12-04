@@ -5,7 +5,7 @@ This document contains all email templates needed for the workshop registration 
 ---
 
 ## 1. Workshop Confirmation Email
-**Subject:** You're Registered! CoreLearnly FREE Workshop - Jan 11-12
+**Subject:** You're Registered! CoreLearnly FREE Workshop - Jan 10-11
 
 **Body:**
 
@@ -16,19 +16,19 @@ Welcome to CoreLearnly!
 Your registration for the FREE 2-Day DSA, System Design & AI Workshop is confirmed.
 
 **Workshop Details:**
-- Dates: January 11-12, 2025 (Saturday & Sunday)
+- Dates: January 10-11, 2026 (Saturday & Sunday)
 - Time: 10:00 AM - 2:00 PM IST (4 hours each day)
 - Platform: Zoom (link will be shared 1 day before)
 - Cost: 100% FREE
 
 **What You'll Learn:**
-Day 1 (Jan 11) - Data Structures & Algorithms
+Day 1 (Jan 10) - Data Structures & Algorithms
 - Time & Space Complexity fundamentals
 - Arrays and problem-solving techniques
 - Live coding session with real interview problems
 - Interview preparation strategies
 
-Day 2 (Jan 12) - AI Tools & System Design
+Day 2 (Jan 11) - AI Tools & System Design
 - AI tools for developers (ChatGPT, GitHub Copilot)
 - LinkedIn optimization using AI
 - System Design fundamentals
@@ -48,7 +48,7 @@ First 20 students who enroll in our full 6-month course get the Basic Module (2 
 - Recordings will be shared with all registered participants
 - Add this to your calendar so you don't miss it!
 
-Mark your calendar: Jan 11-12, 10 AM IST
+Mark your calendar: Jan 10-11, 10 AM IST
 
 Have questions? Reply to this email - I personally read and respond to every message.
 
@@ -74,7 +74,7 @@ Hi [First Name],
 This is a friendly reminder that your FREE CoreLearnly Workshop starts in just 5 days!
 
 **Quick Recap:**
-- Start Date: Saturday, January 11, 2025
+- Start Date: Saturday, January 10, 2026
 - Time: 10:00 AM - 2:00 PM IST (both days)
 - Format: Live online via Zoom
 
@@ -126,7 +126,7 @@ Meeting Link: [ZOOM_LINK]
 Meeting ID: [MEETING_ID]
 Passcode: [PASSCODE]
 
-**Save this email** - you'll use the same link for both days (Jan 11 & 12).
+**Save this email** - you'll use the same link for both days (Jan 10 & 11).
 
 **Tomorrow's Schedule (Day 1):**
 10:00 AM - Welcome & Introduction
@@ -136,7 +136,7 @@ Passcode: [PASSCODE]
 1:30 PM - Q&A Session
 2:00 PM - Wrap up
 
-**Day 2 Schedule (Jan 12):**
+**Day 2 Schedule (Jan 11):**
 10:00 AM - AI Tools for Developers
 11:30 AM - Short Break
 11:45 AM - System Design Fundamentals
@@ -395,8 +395,8 @@ Website: https://corelearnly.com
 1. **Immediately after registration:** Confirmation Email
 2. **Jan 6 (5 days before):** Reminder #1
 3. **Jan 10 (1 day before):** Reminder #2 with Zoom link
-4. **Jan 11 morning:** Day 1 morning reminder
-5. **Jan 12 morning:** Day 2 morning reminder
+4. **Jan 10 morning:** Day 1 morning reminder
+5. **Jan 11 morning:** Day 2 morning reminder
 6. **Jan 13 (day after workshop):** Thank you + Feedback + Offer
 7. **Jan 16 (3 days later):** Follow-up for undecided students
 

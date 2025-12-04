@@ -47,7 +47,7 @@ const WorkshopConfirmationPage = () => {
                 </svg>
                 <div>
                   <div className="text-white font-semibold mb-1">Date</div>
-                  <div className="text-dark-text-secondary">Jan 11-12, 2025 (Sat-Sun)</div>
+                  <div className="text-dark-text-secondary">Jan 10-11, 2026 (Sat-Sun)</div>
                 </div>
               </div>
 
