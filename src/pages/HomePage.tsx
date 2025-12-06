@@ -5,6 +5,7 @@ import PricingSection from '../components/sections/PricingSection';
 import CurriculumSection from '../components/sections/CurriculumSection';
 import ProjectsSection from '../components/sections/ProjectsSection';
 import MentorSection from '../components/sections/MentorSection';
+import FAQSection from '../components/sections/FAQSection';
 
 const HomePage = () => {
   return (
@@ -29,6 +30,9 @@ const HomePage = () => {
 
       {/* Mentor Section */}
       <MentorSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   );
 };
