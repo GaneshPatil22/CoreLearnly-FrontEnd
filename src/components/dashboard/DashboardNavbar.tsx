@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useAuth } from '../../context/auth/AuthContext';
 
 const DashboardNavbar = () => {
-  const { user, signOut } = useAuth();
+  const { user, signOut, isAdmin } = useAuth();
 
   const handleSignOut = async () => {
     await signOut();
@@ -13,8 +13,8 @@ const DashboardNavbar = () => {
     <nav className="sticky top-0 z-50 bg-dark-bg/95 backdrop-blur-lg border-b border-dark-border shadow-lg">
       <div className="section-container">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo - Links to Dashboard */}
-          <Link to="/dashboard" className="flex items-center space-x-2 group">
+          {/* Logo - Links to Dashboard (or Admin for admin users) */}
+          <Link to={isAdmin ? '/admin' : '/dashboard'} className="flex items-center space-x-2 group">
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.5 }}

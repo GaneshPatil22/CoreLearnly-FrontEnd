@@ -13,6 +13,8 @@ const LoginPage = () => {
   const { signIn, resetPassword } = useAuth();
   const navigate = useNavigate();
 
+  const ADMIN_EMAIL = 'ganesh@corelearnly.com';
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -24,7 +26,8 @@ const LoginPage = () => {
       setError('Invalid email or password. Please try again.');
       setLoading(false);
     } else {
-      navigate('/dashboard');
+      const isAdmin = email.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+      navigate(isAdmin ? '/admin' : '/dashboard');
     }
   };
 
