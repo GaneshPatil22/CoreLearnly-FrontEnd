@@ -81,6 +81,12 @@ const Navbar = () => {
               Download Syllabus
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
             </button>
+            <Link
+              to="/login"
+              className="text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium"
+            >
+              Login
+            </Link>
             <Link to="/apply">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -160,6 +166,19 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: (navLinks.length + 1) * 0.1 }}
+                >
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block w-full text-left px-4 py-3 text-dark-text-secondary hover:text-white hover:bg-dark-card rounded-lg transition-all"
+                  >
+                    Login
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navLinks.length + 2) * 0.1 }}
                   className="px-4 pt-2"
                 >
                   <Link to="/apply" onClick={() => setIsMobileMenuOpen(false)}>

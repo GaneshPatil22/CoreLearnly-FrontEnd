@@ -61,3 +61,86 @@ export interface Mentor {
   image: string;
   linkedin?: string;
 }
+
+// Dashboard Types
+export interface Enrollment {
+  id: string;
+  user_id: string;
+  batch_id: string;
+  is_free: boolean;
+  status: 'active' | 'completed' | 'cancelled';
+  enrolled_at: string;
+  batch?: Batch;
+}
+
+export interface Batch {
+  id: string;
+  name: string;
+  curriculum_version_id: string;
+  start_date: string;
+  end_date: string;
+  is_active: boolean;
+}
+
+export interface CourseModule {
+  id: string;
+  curriculum_version_id: string;
+  name: string;
+  description: string;
+  type: 'beginner' | 'advanced' | 'ai';
+  display_order: number;
+  topics?: Topic[];
+}
+
+export interface Topic {
+  id: string;
+  module_id: string;
+  name: string;
+  description: string;
+  display_order: number;
+  lessons?: Lesson[];
+}
+
+export interface Lesson {
+  id: string;
+  topic_id: string;
+  title: string;
+  description: string;
+  display_order: number;
+  is_active: boolean;
+  is_completed?: boolean;
+  completed_at?: string;
+}
+
+export interface LessonProgress {
+  id: string;
+  user_id: string;
+  lesson_id: string;
+  is_completed: boolean;
+  completed_at: string | null;
+}
+
+export interface Session {
+  id: string;
+  batch_id: string;
+  title: string;
+  description: string;
+  session_type: 'beginner' | 'advanced' | 'ai';
+  scheduled_at: string;
+  duration_minutes: number;
+  is_active: boolean;
+  has_zoom_link?: boolean; // True if zoom link is available
+}
+
+export interface DashboardData {
+  enrollment: Enrollment | null;
+  modules: CourseModule[];
+  progress: LessonProgress[];
+  todaySession: Session | null;      // Session scheduled for today
+  upcomingSession: Session | null;   // Next session after today
+  stats: {
+    totalLessons: number;
+    completedLessons: number;
+    progressPercent: number;
+  };
+}
