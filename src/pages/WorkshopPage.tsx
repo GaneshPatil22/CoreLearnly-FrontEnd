@@ -321,7 +321,7 @@ const WorkshopPage = () => {
                 <div className="space-y-4 ml-0 md:ml-20">
                   <div className="flex gap-4">
                     <div className="text-primary font-semibold min-w-[100px]">10:00 - 11:30</div>
-                    <div className="text-dark-text-secondary">AI Tools for Developers • ChatGPT • LinkedIn Optimization</div>
+                    <div className="text-dark-text-secondary">AI Tools for Developers</div>
                   </div>
                   <div className="flex gap-4">
                     <div className="text-primary font-semibold min-w-[100px]">11:30 - 11:45</div>

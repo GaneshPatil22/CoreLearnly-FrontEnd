@@ -17,7 +17,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "What is the class schedule?",
-    answer: "Weekdays: 3 live DSA classes per week. Weekends: 1 AI-related class every weekend. All classes are conducted live online, allowing for real-time interaction and doubt clearing."
+    answer: "Weekdays: 3 live DSA classes per week. Weekends: AI fundamentals and language-specific DSA bridge sessions (Java, JavaScript, Python, Swift). All classes are conducted live online, allowing for real-time interaction and doubt clearing."
   },
   {
     question: "Are the classes live or recorded?",

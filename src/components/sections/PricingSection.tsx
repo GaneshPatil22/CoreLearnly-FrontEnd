@@ -66,7 +66,7 @@ const PricingSection = () => {
                 <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-dark-text-secondary">AI fundamentals & tools every weekend</span>
+                <span className="text-dark-text-secondary">Weekend sessions: AI fundamentals + language-specific DSA</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

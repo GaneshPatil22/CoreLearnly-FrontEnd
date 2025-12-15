@@ -34,38 +34,44 @@ const AIWeekendSection = () => {
 
             {/* Heading */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Master AI <span className="text-gradient">Fundamentals</span>
+              Weekend <span className="text-gradient">Power Sessions</span>
             </h2>
 
             {/* Description */}
             <p className="text-lg md:text-xl text-dark-text-secondary mb-8">
-              Every weekend, you'll learn AI fundamentals, master powerful AI tools,
-              and discover how to leverage artificial intelligence to accelerate your career.
-              One focused session each weekend to keep you ahead in the AI revolution.
+              Weekends are packed with value. Master AI fundamentals to stay ahead in the tech revolution,
+              plus get language-specific DSA bridge sessions to ace coding interviews in your preferred language.
             </p>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-              <div className="text-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+              {/* AI Section */}
+              <div className="bg-dark-bg/50 rounded-xl p-6 border border-dark-border">
                 <div className="text-4xl mb-3">🤖</div>
-                <h3 className="text-white font-semibold mb-2">AI Tools Mastery</h3>
-                <p className="text-sm text-dark-text-muted">
-                  Learn ChatGPT, GitHub Copilot, and cutting-edge AI tools
+                <h3 className="text-white font-semibold text-lg mb-2">AI Fundamentals</h3>
+                <p className="text-sm text-dark-text-muted mb-4">
+                  Learn ChatGPT, GitHub Copilot, career optimization with AI, and core AI concepts
                 </p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">ChatGPT</span>
+                  <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">Copilot</span>
+                  <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">LinkedIn AI</span>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl mb-3">💼</div>
-                <h3 className="text-white font-semibold mb-2">Career Optimization</h3>
-                <p className="text-sm text-dark-text-muted">
-                  Optimize your LinkedIn, resume, and profile using AI
+
+              {/* Language-Specific DSA Section */}
+              <div className="bg-dark-bg/50 rounded-xl p-6 border border-dark-border">
+                <div className="text-4xl mb-3">💻</div>
+                <h3 className="text-white font-semibold text-lg mb-2">Language-Specific DSA</h3>
+                <p className="text-sm text-dark-text-muted mb-4">
+                  Bridge sessions to connect DSA concepts with your preferred programming language
                 </p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl mb-3">💡</div>
-                <h3 className="text-white font-semibold mb-2">AI Fundamentals</h3>
-                <p className="text-sm text-dark-text-muted">
-                  Understand core AI concepts and practical applications
-                </p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  <span className="text-xs bg-purple-600/20 text-purple-400 px-2 py-1 rounded">Java</span>
+                  <span className="text-xs bg-purple-600/20 text-purple-400 px-2 py-1 rounded">JavaScript</span>
+                  <span className="text-xs bg-purple-600/20 text-purple-400 px-2 py-1 rounded">Python</span>
+                  <span className="text-xs bg-purple-600/20 text-purple-400 px-2 py-1 rounded">Swift</span>
+                </div>
               </div>
             </div>
           </div>

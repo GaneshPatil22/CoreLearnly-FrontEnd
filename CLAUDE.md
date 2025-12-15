@@ -45,7 +45,7 @@ The program covers four main areas:
 
 ### Schedule
 - **Weekdays**: 3 DSA classes per week
-- **Weekends**: 1 AI-related class every weekend
+- **Weekends**: AI fundamentals + Language-specific DSA bridge sessions (Java, JavaScript, Python, Swift)
 
 ### Important Distinctions
 - **NO coding projects**: The program does NOT include building applications using programming languages
