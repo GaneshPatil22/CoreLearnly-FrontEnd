@@ -4,8 +4,9 @@ import AdminLayout from '../layout/AdminLayout';
 import HomePage from '../pages/HomePage';
 import ApplyPage from '../pages/ApplyPage';
 import ApplyConfirmationPage from '../pages/ApplyConfirmationPage';
-import WorkshopPage from '../pages/WorkshopPage';
-import WorkshopConfirmationPage from '../pages/WorkshopConfirmationPage';
+// Workshop pages - temporarily disabled (will re-enable in future)
+// import WorkshopPage from '../pages/WorkshopPage';
+// import WorkshopConfirmationPage from '../pages/WorkshopConfirmationPage';
 import PrivacyPolicyPage from '../pages/PrivacyPolicyPage';
 import TermsPage from '../pages/TermsPage';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -43,14 +44,15 @@ export const router = createBrowserRouter([
     path: '/apply-confirmation',
     element: <MainLayout><ApplyConfirmationPage /></MainLayout>,
   },
-  {
-    path: '/workshop',
-    element: <MainLayout><WorkshopPage /></MainLayout>,
-  },
-  {
-    path: '/workshop-confirmation',
-    element: <MainLayout><WorkshopConfirmationPage /></MainLayout>,
-  },
+  // Workshop routes - temporarily disabled (will re-enable in future)
+  // {
+  //   path: '/workshop',
+  //   element: <MainLayout><WorkshopPage /></MainLayout>,
+  // },
+  // {
+  //   path: '/workshop-confirmation',
+  //   element: <MainLayout><WorkshopConfirmationPage /></MainLayout>,
+  // },
   {
     path: '/privacy-policy',
     element: <MainLayout><PrivacyPolicyPage /></MainLayout>,

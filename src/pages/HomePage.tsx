@@ -1,4 +1,5 @@
-import BannerSection from '../components/sections/BannerSection';
+// Workshop banner - temporarily disabled (will re-enable in future)
+// import BannerSection from '../components/sections/BannerSection';
 import HeroSection from '../components/sections/HeroSection';
 import AIWeekendSection from '../components/sections/AIWeekendSection';
 import PricingSection from '../components/sections/PricingSection';
@@ -10,8 +11,8 @@ import FAQSection from '../components/sections/FAQSection';
 const HomePage = () => {
   return (
     <div className="min-h-screen">
-      {/* Temporary Banner - First 40 students FREE */}
-      <BannerSection />
+      {/* Workshop Banner - temporarily disabled (will re-enable in future) */}
+      {/* <BannerSection /> */}
 
       {/* Hero Section - Main CTA */}
       <HeroSection />
