@@ -144,3 +144,53 @@ export interface DashboardData {
     progressPercent: number;
   };
 }
+
+// Blog Types
+export type BlogCategory = 'DSA' | 'System Design' | 'AI' | 'Career' | 'Course Updates';
+
+export const BLOG_CATEGORIES: BlogCategory[] = [
+  'DSA',
+  'System Design',
+  'AI',
+  'Career',
+  'Course Updates',
+];
+
+export interface EditorJSBlock {
+  id?: string;
+  type: string;
+  data: Record<string, unknown>;
+}
+
+export interface EditorJSData {
+  time?: number;
+  blocks: EditorJSBlock[];
+  version?: string;
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: EditorJSData;
+  cover_image_url: string | null;
+  category: BlogCategory;
+  tags: string[];
+  status: 'draft' | 'published';
+  read_time_minutes: number;
+  author_name: string;
+  published_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface BlogPostFormData {
+  title: string;
+  excerpt: string;
+  content: EditorJSData;
+  cover_image_url: string | null;
+  category: BlogCategory;
+  tags: string[];
+  status: 'draft' | 'published';
+}

@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/common/SEO';
 
 const PrivacyPolicyPage = () => {
   return (
     <div className="section-container py-16 md:py-24">
+      <SEO
+        title="Privacy Policy"
+        description="CoreLearnly's privacy policy. Learn how we collect, use, and protect your personal information."
+        path="/privacy-policy"
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAdminStudents } from '../../hooks/admin/useAdmin';
+import SEO from '../../components/common/SEO';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 
 const AdminStudentsPage = () => {
@@ -74,6 +75,12 @@ const AdminStudentsPage = () => {
 
   return (
     <div className="space-y-6">
+      <SEO
+        title="Admin - Students"
+        description="Manage CoreLearnly student enrollments."
+        path="/admin/students"
+        noIndex
+      />
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white">Students</h1>

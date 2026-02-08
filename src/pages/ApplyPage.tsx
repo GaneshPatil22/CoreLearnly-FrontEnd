@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SEO from '../components/common/SEO';
 
 const ApplyPage = () => {
   const navigate = useNavigate();
@@ -29,6 +30,11 @@ const ApplyPage = () => {
 
   return (
     <div className="section-container py-16 md:py-24">
+      <SEO
+        title="Apply Now"
+        description="Apply to CoreLearnly's 6-month intensive program. Master DSA, System Design, and AI fundamentals with live classes and personal mentorship."
+        path="/apply"
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAdminSessions } from '../../hooks/admin/useAdmin';
+import SEO from '../../components/common/SEO';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 
 const AdminSessionsPage = () => {
@@ -97,6 +98,12 @@ const AdminSessionsPage = () => {
 
   return (
     <div className="space-y-6">
+      <SEO
+        title="Admin - Sessions"
+        description="Manage CoreLearnly class sessions and zoom links."
+        path="/admin/sessions"
+        noIndex
+      />
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white">Sessions</h1>

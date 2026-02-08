@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/auth/AuthContext';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -19,6 +20,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     { label: 'Dashboard', path: '/admin' },
     { label: 'Sessions', path: '/admin/sessions' },
     { label: 'Students', path: '/admin/students' },
+    { label: 'Blog', path: '/admin/blog' },
   ];
 
   const isActive = (path: string) => {
@@ -85,7 +87,9 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {children}
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
       </main>
     </div>
   );

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import AdminLayout from '../layout/AdminLayout';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 import HomePage from '../pages/HomePage';
 import ApplyPage from '../pages/ApplyPage';
 import ApplyConfirmationPage from '../pages/ApplyConfirmationPage';
@@ -18,6 +19,10 @@ import AdminRoute from '../components/auth/AdminRoute';
 import AdminDashboardPage from '../pages/admin/AdminDashboardPage';
 import AdminSessionsPage from '../pages/admin/AdminSessionsPage';
 import AdminStudentsPage from '../pages/admin/AdminStudentsPage';
+import AdminBlogPostsPage from '../pages/admin/AdminBlogPostsPage';
+import AdminBlogEditorPage from '../pages/admin/AdminBlogEditorPage';
+import BlogListPage from '../pages/BlogListPage';
+import BlogPostPage from '../pages/BlogPostPage';
 
 export const router = createBrowserRouter([
   {
@@ -61,19 +66,28 @@ export const router = createBrowserRouter([
     path: '/terms',
     element: <MainLayout><TermsPage /></MainLayout>,
   },
+  // Blog routes
+  {
+    path: '/blog',
+    element: <MainLayout><BlogListPage /></MainLayout>,
+  },
+  {
+    path: '/blog/:slug',
+    element: <MainLayout><BlogPostPage /></MainLayout>,
+  },
   // Auth routes (no MainLayout - standalone pages)
   {
     path: '/login',
-    element: <LoginPage />,
+    element: <ErrorBoundary><LoginPage /></ErrorBoundary>,
   },
   {
     path: '/reset-password',
-    element: <ResetPasswordPage />,
+    element: <ErrorBoundary><ResetPasswordPage /></ErrorBoundary>,
   },
   // Protected routes
   {
     path: '/dashboard',
-    element: <ProtectedRoute><DashboardPage /></ProtectedRoute>,
+    element: <ProtectedRoute><ErrorBoundary><DashboardPage /></ErrorBoundary></ProtectedRoute>,
   },
   // Admin routes
   {
@@ -87,6 +101,18 @@ export const router = createBrowserRouter([
   {
     path: '/admin/students',
     element: <AdminRoute><AdminLayout><AdminStudentsPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/blog',
+    element: <AdminRoute><AdminLayout><AdminBlogPostsPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/blog/new',
+    element: <AdminRoute><AdminLayout><AdminBlogEditorPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/blog/edit/:postId',
+    element: <AdminRoute><AdminLayout><AdminBlogEditorPage /></AdminLayout></AdminRoute>,
   },
   {
     path: '*',

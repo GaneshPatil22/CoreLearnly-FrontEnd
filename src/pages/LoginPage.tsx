@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/auth/AuthContext';
+import SEO from '../components/common/SEO';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -48,6 +49,12 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
+      <SEO
+        title="Student Login"
+        description="Sign in to your CoreLearnly student portal to access your dashboard, lessons, and live sessions."
+        path="/login"
+        noIndex
+      />
       <div className="w-full max-w-md">
         {/* Logo/Brand */}
         <div className="text-center mb-8">

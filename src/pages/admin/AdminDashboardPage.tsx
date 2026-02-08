@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAdminStats } from '../../hooks/admin/useAdmin';
+import SEO from '../../components/common/SEO';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 
 const AdminDashboardPage = () => {
@@ -31,6 +32,12 @@ const AdminDashboardPage = () => {
 
   return (
     <div className="space-y-8">
+      <SEO
+        title="Admin Dashboard"
+        description="CoreLearnly admin panel - manage students, sessions, and course content."
+        path="/admin"
+        noIndex
+      />
       <div>
         <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
         <p className="text-dark-text-muted mt-1">Overview of your course</p>

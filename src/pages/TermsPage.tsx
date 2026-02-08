@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/common/SEO';
 
 const TermsPage = () => {
   return (
     <div className="section-container py-16 md:py-24">
+      <SEO
+        title="Terms & Conditions"
+        description="CoreLearnly's terms and conditions. Read about our course enrollment, payment, refund policies, and user responsibilities."
+        path="/terms"
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

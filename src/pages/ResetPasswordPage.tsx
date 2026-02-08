@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/auth/AuthContext';
+import SEO from '../components/common/SEO';
 
 const ResetPasswordPage = () => {
   const [password, setPassword] = useState('');
@@ -63,6 +64,12 @@ const ResetPasswordPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
+      <SEO
+        title="Reset Password"
+        description="Set a new password for your CoreLearnly account."
+        path="/reset-password"
+        noIndex
+      />
       <div className="w-full max-w-md">
         {/* Logo/Brand */}
         <div className="text-center mb-8">

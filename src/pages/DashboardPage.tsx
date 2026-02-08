@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useDashboard } from '../hooks/dashboard/useDashboard';
+import SEO from '../components/common/SEO';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import ProgressStats from '../components/dashboard/ProgressStats';
 import TodaySession from '../components/dashboard/TodaySession';
@@ -68,6 +69,12 @@ const DashboardPage = () => {
 
   return (
     <div className="min-h-screen bg-dark-bg">
+      <SEO
+        title="Dashboard"
+        description="Your CoreLearnly student dashboard. Track progress, join live sessions, and complete lessons."
+        path="/dashboard"
+        noIndex
+      />
       <DashboardNavbar />
 
       {/* Main Content */}

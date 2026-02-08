@@ -12,6 +12,9 @@ const Footer = () => {
       { label: 'Projects', sectionId: 'projects' },
       { label: 'Mentors', sectionId: 'mentors' },
     ],
+    resources: [
+      { label: 'Blog', to: '/blog' },
+    ],
     legal: [
       { label: 'Privacy Policy', to: '/privacy-policy' },
     ],
@@ -68,7 +71,7 @@ const Footer = () => {
   return (
     <footer className="bg-dark-card border-t border-dark-border mt-20">
       <div className="section-container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -120,6 +123,28 @@ const Footer = () => {
                   >
                     {link.label}
                   </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Resources */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h3 className="text-white font-semibold mb-4">Resources</h3>
+            <ul className="space-y-2">
+              {footerLinks.resources.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-dark-text-secondary hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>

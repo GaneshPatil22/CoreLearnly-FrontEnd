@@ -1,3 +1,4 @@
+import SEO from '../components/common/SEO';
 // Workshop banner - temporarily disabled (will re-enable in future)
 // import BannerSection from '../components/sections/BannerSection';
 import HeroSection from '../components/sections/HeroSection';
@@ -11,6 +12,12 @@ import FAQSection from '../components/sections/FAQSection';
 const HomePage = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="CoreLearnly - Master DSA, System Design & AI Fundamentals"
+        description="Learn DSA, System Design (LLD & HLD), and AI fundamentals through live online classes. 6-month intensive program with personal mentorship. Just Rs.2000/month."
+        path="/"
+      />
+
       {/* Workshop Banner - temporarily disabled (will re-enable in future) */}
       {/* <BannerSection /> */}
 

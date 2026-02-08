@@ -48,3 +48,125 @@
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
   }
 }
+
+/* Editor.js Dark Mode Overrides */
+.blog-editor-wrapper .codex-editor {
+  color: #e2e8f0;
+}
+
+.blog-editor-wrapper .ce-block__content,
+.blog-editor-wrapper .ce-toolbar__content {
+  max-width: 100%;
+}
+
+.blog-editor-wrapper .ce-paragraph,
+.blog-editor-wrapper .ce-header,
+.blog-editor-wrapper .ce-quote__text,
+.blog-editor-wrapper .ce-code__textarea {
+  color: #e2e8f0;
+}
+
+.blog-editor-wrapper .ce-paragraph[data-placeholder]:empty::before {
+  color: #64748b;
+}
+
+.blog-editor-wrapper .ce-toolbar__plus,
+.blog-editor-wrapper .ce-toolbar__settings-btn {
+  color: #94a3b8;
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.blog-editor-wrapper .ce-toolbar__plus:hover,
+.blog-editor-wrapper .ce-toolbar__settings-btn:hover {
+  background: #334155;
+}
+
+.blog-editor-wrapper .ce-popover {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.blog-editor-wrapper .ce-popover-item:hover {
+  background: #334155;
+}
+
+.blog-editor-wrapper .ce-popover-item__icon {
+  color: #94a3b8;
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+.blog-editor-wrapper .ce-popover-item__title {
+  color: #e2e8f0;
+}
+
+.blog-editor-wrapper .ce-popover-item__secondary-title {
+  color: #64748b;
+}
+
+.blog-editor-wrapper .ce-inline-toolbar {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.blog-editor-wrapper .ce-inline-tool {
+  color: #94a3b8;
+}
+
+.blog-editor-wrapper .ce-inline-tool:hover {
+  background: #334155;
+}
+
+.blog-editor-wrapper .ce-inline-tool--active {
+  color: #8b5cf6;
+}
+
+.blog-editor-wrapper .ce-conversion-toolbar {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.blog-editor-wrapper .ce-conversion-tool:hover {
+  background: #334155;
+}
+
+.blog-editor-wrapper .ce-conversion-tool__icon {
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+.blog-editor-wrapper .ce-code__textarea {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #4ade80;
+}
+
+.blog-editor-wrapper .cdx-quote__text {
+  border-left: 3px solid #8b5cf6;
+}
+
+.blog-editor-wrapper .image-tool__caption,
+.blog-editor-wrapper .cdx-quote__caption {
+  color: #94a3b8;
+}
+
+.blog-editor-wrapper .ce-delimiter::before {
+  color: #64748b;
+}
+
+/* Blog content inline styles */
+.blog-content mark {
+  background: rgba(139, 92, 246, 0.3);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.blog-content code {
+  background: #1e293b;
+  color: #4ade80;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+}

@@ -1,9 +1,16 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/common/SEO';
 
 const ApplyConfirmationPage = () => {
   return (
     <div className="section-container py-16 md:py-24">
+      <SEO
+        title="Application Received"
+        description="Your application to CoreLearnly has been received. We'll get back to you within 24 hours."
+        path="/apply-confirmation"
+        noIndex
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

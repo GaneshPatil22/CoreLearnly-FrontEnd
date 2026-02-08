@@ -32,10 +32,11 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const navLinks = [
+  const navLinks: { label: string; sectionId?: string; path?: string }[] = [
     { label: 'Curriculum', sectionId: 'curriculum' },
     { label: 'Projects', sectionId: 'projects' },
     { label: 'Mentors', sectionId: 'mentors' },
+    { label: 'Blog', path: '/blog' },
   ];
 
   return (
@@ -64,16 +65,27 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleNavClick(link.sectionId)}
-                className="text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium relative group"
-              >
-                {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-              </button>
-            ))}
+            {navLinks.map((link) =>
+              link.path ? (
+                <Link
+                  key={link.label}
+                  to={link.path}
+                  className="text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium relative group"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                </Link>
+              ) : (
+                <button
+                  key={link.label}
+                  onClick={() => handleNavClick(link.sectionId!)}
+                  className="text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium relative group"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                </button>
+              )
+            )}
             <button
               onClick={handleDownloadSyllabus}
               className="text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium relative group"
@@ -141,18 +153,35 @@ const Navbar = () => {
               className="lg:hidden border-t border-dark-border overflow-hidden"
             >
               <div className="py-4 space-y-2">
-                {navLinks.map((link, index) => (
-                  <motion.button
-                    key={link.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onClick={() => handleNavClick(link.sectionId)}
-                    className="block w-full text-left px-4 py-3 text-dark-text-secondary hover:text-white hover:bg-dark-card rounded-lg transition-all"
-                  >
-                    {link.label}
-                  </motion.button>
-                ))}
+                {navLinks.map((link, index) =>
+                  link.path ? (
+                    <motion.div
+                      key={link.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Link
+                        to={link.path}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block w-full text-left px-4 py-3 text-dark-text-secondary hover:text-white hover:bg-dark-card rounded-lg transition-all"
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ) : (
+                    <motion.button
+                      key={link.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={() => handleNavClick(link.sectionId!)}
+                      className="block w-full text-left px-4 py-3 text-dark-text-secondary hover:text-white hover:bg-dark-card rounded-lg transition-all"
+                    >
+                      {link.label}
+                    </motion.button>
+                  )
+                )}
                 <motion.button
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}

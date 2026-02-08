@@ -4,6 +4,7 @@ import Footer from '../components/common/Footer';
 import ScrollToTop from '../components/common/ScrollToTop';
 import ScrollProgress from '../components/common/ScrollProgress';
 import RouteTracker from '../components/common/RouteTracker';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -16,7 +17,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <ScrollProgress />
       <Navbar />
       <main className="flex-grow pt-16 md:pt-20">
-        {children}
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
       </main>
       <Footer />
       <ScrollToTop />
