@@ -120,7 +120,7 @@ const BlogPostPage = () => {
         >
           <div className="flex gap-12">
             {/* Main Content */}
-            <div className="flex-1 max-w-3xl">
+            <div className="flex-1 max-w-3xl reading-area">
               <BlogContentRenderer content={post.content} />
             </div>
 

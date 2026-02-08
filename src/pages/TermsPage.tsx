@@ -99,9 +99,7 @@ const TermsPage = () => {
                 <h3 className="text-xl font-semibold text-white mb-3 mt-4">5.1 Enrollment</h3>
                 <ul className="list-disc pl-6 space-y-2 mb-4">
                   <li>Course enrollment is subject to availability and acceptance of your application.</li>
-                  <li>The first 20 students who enroll get the Basic Module (2 months) FREE.</li>
                   <li>Standard course fee is ₹2,000 per month for 6 months (total ₹12,000).</li>
-                  <li>With the promotional offer, first 20 students pay ₹8,000 (4 months only).</li>
                   <li>Enrollment is confirmed only upon receipt of payment.</li>
                 </ul>
 
@@ -119,7 +117,7 @@ const TermsPage = () => {
                   <li><strong className="text-white">7-Day Money-Back Guarantee:</strong> Full refund if requested within 7 days of enrollment and before attending 2nd class.</li>
                   <li><strong className="text-white">After 7 Days:</strong> No refunds will be provided.</li>
                   <li><strong className="text-white">Partial Completion:</strong> No refunds for partially completed months.</li>
-                  <li><strong className="text-white">Promotional Offers:</strong> Discounted amounts (2 months free) are non-refundable.</li>
+                  <li><strong className="text-white">Promotional Offers:</strong> Discounted amounts from any active promotions are non-refundable.</li>
                   <li>Refunds will be processed within 7-10 business days to the original payment method.</li>
                 </ul>
 

@@ -79,7 +79,7 @@ const DashboardPage = () => {
 
       {/* Main Content */}
       <main className="section-container py-8">
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="reading-area grid lg:grid-cols-3 gap-6">
           {/* Left Column - Progress & Upcoming */}
           <div className="lg:col-span-1 space-y-6">
             <ProgressStats

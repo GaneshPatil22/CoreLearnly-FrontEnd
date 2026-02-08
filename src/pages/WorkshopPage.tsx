@@ -346,7 +346,7 @@ const WorkshopPage = () => {
         </motion.div>
       </section>
 
-      {/* Special Offer Section */}
+      {/* Full Course Section */}
       <section className="section-container py-16 md:py-20 bg-dark-bg/50">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -358,27 +358,17 @@ const WorkshopPage = () => {
           <div className="card border-primary/30 bg-gradient-to-br from-dark-card to-dark-bg">
             <div className="text-center p-8 md:p-12">
               <div className="inline-block bg-gradient-to-r from-primary to-purple-600 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
-                Early Bird Offer
+                Full Course
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Join the Full Course & Get{' '}
-                <span className="text-gradient">2 Months FREE</span>
+                Continue Your Journey with the{' '}
+                <span className="text-gradient">6-Month Course</span>
               </h2>
               <p className="text-lg text-dark-text-secondary mb-6 max-w-2xl mx-auto">
-                The first 20 students who enroll in the full 6-month CoreLearnly course
-                get the Basic Module (2 months) absolutely FREE!
+                Take your skills to the next level with 6 months of live mentorship covering
+                DSA, System Design, and AI fundamentals.
               </p>
-              <div className="flex items-center justify-center gap-4 mb-8">
-                <div className="text-3xl text-dark-text-muted line-through">₹4,000</div>
-                <div className="text-5xl font-bold text-gradient">FREE</div>
-              </div>
               <div className="space-y-3 text-left max-w-md mx-auto mb-8">
-                <div className="flex items-center gap-3 text-dark-text-secondary">
-                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Save ₹4,000 (2 months free)</span>
-                </div>
                 <div className="flex items-center gap-3 text-dark-text-secondary">
                   <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -395,7 +385,13 @@ const WorkshopPage = () => {
                   <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Limited to first 20 students only!</span>
+                  <span>Live personal mentorship</span>
+                </div>
+                <div className="flex items-center gap-3 text-dark-text-secondary">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Just ₹2,000/month</span>
                 </div>
               </div>
               <Link to="/apply">
@@ -505,7 +501,7 @@ const WorkshopPage = () => {
               },
               {
                 q: 'Is this workshop connected to the full course?',
-                a: 'The workshop is standalone and completely FREE. It\'s a great way to experience my teaching style! Plus, the first 20 students who enroll in the full 6-month course get 2 months FREE (save ₹4,000)!',
+                a: 'The workshop is standalone and completely FREE. It\'s a great way to experience my teaching style! If you enjoy the workshop, you can explore the full 6-month course at ₹2,000/month.',
               },
             ].map((faq, index) => (
               <motion.div

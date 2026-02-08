@@ -6,7 +6,7 @@ interface BlogContentRendererProps {
 
 const BlogContentRenderer = ({ content }: BlogContentRendererProps) => {
   return (
-    <div className="blog-content space-y-6">
+    <div className="blog-content space-y-6 max-w-prose">
       {content.blocks.map((block, index) => (
         <Block key={block.id || index} block={block} />
       ))}
@@ -21,7 +21,7 @@ function Block({ block }: { block: EditorJSBlock }) {
     case 'paragraph':
       return (
         <p
-          className="text-dark-text-secondary leading-relaxed text-lg"
+          className="text-dark-text-secondary leading-[1.8] text-lg"
           dangerouslySetInnerHTML={{ __html: block.data.text as string }}
         />
       );

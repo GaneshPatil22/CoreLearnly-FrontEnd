@@ -90,7 +90,7 @@ const PricingSection = () => {
             </Link>
 
             <p className="text-sm text-dark-text-muted mt-6">
-              💰 First 20 students get Basic Module (2 months) FREE | Save ₹4,000 | Limited seats available
+              💰 6 months of live mentorship | DSA + System Design + AI | Limited seats available
             </p>
           </div>
         </div>

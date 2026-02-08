@@ -203,14 +203,14 @@ const WorkshopConfirmationPage = () => {
           className="card border-primary/30 p-8 mb-12"
         >
           <div className="inline-block bg-gradient-to-r from-primary to-purple-600 text-white text-sm font-semibold px-4 py-2 rounded-full mb-4">
-            Exclusive Offer for Early Enrollees
+            Full Course Available
           </div>
           <h3 className="text-2xl font-bold text-white mb-3">
-            Get 2 Months FREE in Full Course
+            Continue Learning with the 6-Month Course
           </h3>
           <p className="text-dark-text-secondary mb-6">
-            The first 20 students who enroll in the 6-month CoreLearnly course
-            get the Basic Module (2 months) absolutely FREE. Save ₹4,000!
+            Take your skills further with 6 months of live mentorship covering DSA, System Design,
+            and AI fundamentals — just ₹2,000/month.
           </p>
           <Link to="/apply">
             <button className="btn-secondary px-8 py-3">

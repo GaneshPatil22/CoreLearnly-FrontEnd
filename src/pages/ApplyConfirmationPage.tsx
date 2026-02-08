@@ -169,7 +169,7 @@ const ApplyConfirmationPage = () => {
             Join Our FREE Workshop First!
           </h3>
           <p className="text-dark-text-secondary mb-6">
-            Get a taste of my teaching style and learn valuable skills. Plus, the first 20 students to enroll get 2 months FREE!
+            Get a taste of my teaching style and learn valuable skills before committing to the full course.
           </p>
           <Link to="/workshop">
             <button className="btn-primary px-8 py-3 glow">

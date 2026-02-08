@@ -14,7 +14,7 @@ const BannerSection = () => {
           <p className="text-center text-white font-medium text-sm md:text-base flex items-center justify-center gap-2">
             <span className="text-2xl">🎉</span>
             <span>
-              <span className="font-bold text-gradient">FREE</span> 8-hour workshop + First 20 students get Basic Module (2 months) <span className="font-bold text-gradient">FREE</span> — Save ₹4,000!
+              <span className="font-bold text-gradient">FREE</span> 8-hour workshop — Master DSA, System Design & AI Fundamentals!
             </span>
             <span className="ml-2 text-primary font-semibold underline">Register Now →</span>
           </p>

@@ -23,13 +23,13 @@ export default {
           900: '#4C1D95',
         },
         dark: {
-          bg: '#0A0A0A',
-          card: '#111111',
-          border: '#1F1F1F',
+          bg: '#111113',
+          card: '#1A1A1D',
+          border: '#2A2A2E',
           text: {
-            primary: '#FFFFFF',
-            secondary: '#A3A3A3',
-            muted: '#737373',
+            primary: '#ECECF1',
+            secondary: '#B4B4BB',
+            muted: '#8B8B93',
           }
         }
       },
