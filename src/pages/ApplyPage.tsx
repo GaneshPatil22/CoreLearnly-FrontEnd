@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/common/SEO';
+import { trackFormSubmit } from '../utils/analytics';
 
 const ApplyPage = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const ApplyPage = () => {
     // Listen for Tally form submission
     const handleTallyMessage = (event: MessageEvent) => {
       if (event.data?.type === 'tally.form.submitted') {
+        trackFormSubmit('apply');
         navigate('/apply-confirmation');
       }
     };

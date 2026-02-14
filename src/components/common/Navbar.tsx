@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollTo } from '../../hooks/useScrollTo';
+import { trackButtonClick } from '../../utils/analytics';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,6 +20,7 @@ const Navbar = () => {
   }, []);
 
   const handleDownloadSyllabus = () => {
+    trackButtonClick('download_syllabus', 'navbar');
     const link = document.createElement('a');
     link.href = '/syllabus.pdf';
     link.download = 'CoreLearnly-Syllabus.pdf';
@@ -99,7 +101,7 @@ const Navbar = () => {
             >
               Login
             </Link>
-            <Link to="/apply">
+            <Link to="/apply" onClick={() => trackButtonClick('apply_now', 'navbar')}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -210,7 +212,7 @@ const Navbar = () => {
                   transition={{ delay: (navLinks.length + 2) * 0.1 }}
                   className="px-4 pt-2"
                 >
-                  <Link to="/apply" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link to="/apply" onClick={() => { trackButtonClick('apply_now', 'navbar'); setIsMobileMenuOpen(false); }}>
                     <button className="btn-primary w-full">Apply Now</button>
                   </Link>
                 </motion.div>

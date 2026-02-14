@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { trackButtonClick } from '../../utils/analytics';
 
 const HeroSection = () => {
   const handleDownloadSyllabus = () => {
+    trackButtonClick('download_syllabus', 'hero');
     const link = document.createElement('a');
     link.href = '/syllabus.pdf';
     link.download = 'CoreLearnly-Syllabus.pdf';
@@ -46,7 +48,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Link to="/apply">
+          <Link to="/apply" onClick={() => trackButtonClick('apply_now', 'hero')}>
             <button className="btn-primary text-lg px-8 py-4 glow">
               Apply Now
             </button>

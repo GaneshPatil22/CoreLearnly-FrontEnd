@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useBlogPostBySlug, useBlogPosts } from '../hooks/useBlog';
@@ -9,6 +9,7 @@ import TableOfContents from '../components/blog/TableOfContents';
 import SEO from '../components/common/SEO';
 import JsonLd from '../components/common/JsonLd';
 import LoadingSpinner from '../components/common/LoadingSpinner';
+import { trackEvent } from '../utils/analytics';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -18,6 +19,12 @@ const BlogPostPage = () => {
   const tocItems = useMemo(() => {
     if (!post) return [];
     return extractTableOfContents(post.content);
+  }, [post]);
+
+  useEffect(() => {
+    if (post) {
+      trackEvent('blog_post_view', { post_slug: post.slug, post_title: post.title, post_category: post.category });
+    }
   }, [post]);
 
   const relatedPosts = useMemo(() => {

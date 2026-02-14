@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { trackButtonClick } from '../../utils/analytics';
 
 const PricingSection = () => {
   return (
@@ -83,7 +84,7 @@ const PricingSection = () => {
             </div>
 
             {/* CTA */}
-            <Link to="/apply">
+            <Link to="/apply" onClick={() => trackButtonClick('enroll_now', 'pricing')}>
               <button className="btn-primary text-lg px-10 py-4 glow">
                 Enroll Now - Save 60%
               </button>

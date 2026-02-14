@@ -10,6 +10,7 @@ import {
   validateSource,
 } from '../../utils/validation';
 import { submitEnquiry } from '../../queries/enquiries';
+import { trackFormSubmit } from '../../utils/analytics';
 import LoadingSpinner from '../common/LoadingSpinner';
 
 interface FormErrors {
@@ -138,6 +139,7 @@ const ApplicationForm = () => {
       const result = await submitEnquiry(formData);
 
       if (result.success) {
+        trackFormSubmit('enquiry');
         setSubmissionState('success');
         // Reset form
         setFormData({

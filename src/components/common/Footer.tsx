@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useScrollTo } from '../../hooks/useScrollTo';
+import { trackExternalLink } from '../../utils/analytics';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -191,6 +192,7 @@ const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackExternalLink(social.href, social.name)}
                 className="text-dark-text-muted hover:text-primary transition-colors"
                 aria-label={social.name}
                 initial={{ opacity: 0, y: 10 }}
