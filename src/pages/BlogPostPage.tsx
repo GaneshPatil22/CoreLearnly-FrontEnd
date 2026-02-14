@@ -3,9 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useBlogPostBySlug, useBlogPosts } from '../hooks/useBlog';
 import { extractTableOfContents, formatBlogDate } from '../utils/blog';
+import { buildBlogPostingSchema, buildBreadcrumbSchema } from '../utils/jsonld';
 import BlogContentRenderer from '../components/blog/BlogContentRenderer';
 import TableOfContents from '../components/blog/TableOfContents';
 import SEO from '../components/common/SEO';
+import JsonLd from '../components/common/JsonLd';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 
 const BlogPostPage = () => {
@@ -55,7 +57,17 @@ const BlogPostPage = () => {
         path={`/blog/${post.slug}`}
         image={post.cover_image_url || undefined}
         type="article"
+        publishedTime={post.published_at || undefined}
+        modifiedTime={post.updated_at}
+        author={post.author_name}
+        tags={post.tags}
       />
+      <JsonLd data={buildBlogPostingSchema(post)} />
+      <JsonLd data={buildBreadcrumbSchema([
+        { name: 'Home', url: 'https://corelearnly.com/' },
+        { name: 'Blog', url: 'https://corelearnly.com/blog' },
+        { name: post.title, url: `https://corelearnly.com/blog/${post.slug}` },
+      ])} />
 
       <article className="section-container">
         {/* Header */}

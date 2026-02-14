@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useBlogPosts } from '../hooks/useBlog';
 import { formatBlogDate } from '../utils/blog';
+import { buildBreadcrumbSchema } from '../utils/jsonld';
 import { BLOG_CATEGORIES } from '../types';
 import type { BlogCategory } from '../types';
 import SEO from '../components/common/SEO';
+import JsonLd from '../components/common/JsonLd';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 
 const BlogListPage = () => {
@@ -34,7 +36,12 @@ const BlogListPage = () => {
         title="Blog"
         description="Technical articles on DSA, System Design, AI, and interview preparation. Learn from in-depth tutorials and guides."
         path="/blog"
+        keywords="DSA tutorials, System Design articles, coding interview tips, FAANG preparation blog, Data Structures guide, algorithm explanations, HLD case studies, LLD design patterns"
       />
+      <JsonLd data={buildBreadcrumbSchema([
+        { name: 'Home', url: 'https://corelearnly.com/' },
+        { name: 'Blog', url: 'https://corelearnly.com/blog' },
+      ])} />
 
       <div className="section-container">
         {/* Header */}

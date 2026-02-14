@@ -2,4 +2,10 @@
 User-agent: *
 Allow: /
 
+Disallow: /admin
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /dashboard/
+Disallow: /login
+
 Sitemap: https://corelearnly.com/sitemap.xml
