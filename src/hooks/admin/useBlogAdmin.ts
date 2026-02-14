@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../../services/supabase/client';
-import type { BlogPost, BlogPostFormData, EditorJSData } from '../../types';
+import type { BlogPost, BlogPostFormData } from '../../types';
 import { generateSlug, calculateReadTime } from '../../utils/blog';
 
 export function useBlogAdmin() {
@@ -207,12 +207,3 @@ export function useBlogPost(id: string | undefined) {
   return { post, loading, error };
 }
 
-// Helper to get content from EditorJS data for search
-export function getPlainText(content: EditorJSData): string {
-  return content.blocks
-    .map((block) => {
-      const text = String(block.data.text || '');
-      return text.replace(/<[^>]*>/g, '');
-    })
-    .join(' ');
-}

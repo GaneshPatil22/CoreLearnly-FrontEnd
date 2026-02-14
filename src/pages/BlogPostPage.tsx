@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useBlogPostBySlug, useBlogPosts } from '../hooks/useBlog';
 import { extractTableOfContents, formatBlogDate } from '../utils/blog';
 import { buildBlogPostingSchema, buildBreadcrumbSchema } from '../utils/jsonld';
-import BlogContentRenderer from '../components/blog/BlogContentRenderer';
+import BlogContentSwitch from '../components/blog/BlogContentSwitch';
 import TableOfContents from '../components/blog/TableOfContents';
 import SEO from '../components/common/SEO';
 import JsonLd from '../components/common/JsonLd';
@@ -133,7 +133,7 @@ const BlogPostPage = () => {
           <div className="flex gap-12">
             {/* Main Content */}
             <div className="flex-1 max-w-3xl reading-area">
-              <BlogContentRenderer content={post.content} />
+              <BlogContentSwitch content={post.content} />
             </div>
 
             {/* Sidebar ToC (desktop only) */}

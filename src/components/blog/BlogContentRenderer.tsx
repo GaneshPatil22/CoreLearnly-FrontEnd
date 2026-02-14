@@ -1,4 +1,8 @@
+import { createElement } from 'react';
+import { common, createLowlight } from 'lowlight';
 import type { EditorJSData, EditorJSBlock } from '../../types';
+
+const lowlight = createLowlight(common);
 
 interface BlogContentRendererProps {
   content: EditorJSData;
@@ -28,11 +32,7 @@ function Block({ block }: { block: EditorJSBlock }) {
     case 'list':
       return <ListBlock items={block.data.items as unknown[]} style={block.data.style as string} />;
     case 'code':
-      return (
-        <pre className="bg-dark-bg border border-dark-border rounded-lg p-4 overflow-x-auto">
-          <code className="text-sm text-green-400 font-mono">{String(block.data.code || '')}</code>
-        </pre>
-      );
+      return <HighlightedCodeBlock code={String(block.data.code || '')} />;
     case 'quote':
       return (
         <blockquote className="border-l-4 border-primary pl-4 py-2">
@@ -48,11 +48,7 @@ function Block({ block }: { block: EditorJSBlock }) {
         </blockquote>
       );
     case 'delimiter':
-      return (
-        <div className="flex items-center justify-center py-4">
-          <span className="text-dark-text-muted text-2xl tracking-[0.5em]">***</span>
-        </div>
-      );
+      return <hr className="border-none border-t border-dark-border my-6" />;
     case 'image': {
       const fileData = block.data.file as { url: string } | undefined;
       const imageUrl = fileData?.url || (block.data.url as string) || '';
@@ -75,6 +71,46 @@ function Block({ block }: { block: EditorJSBlock }) {
     default:
       return null;
   }
+}
+
+function HighlightedCodeBlock({ code }: { code: string }) {
+  let highlighted: React.ReactNode;
+  try {
+    const tree = lowlight.highlightAuto(code);
+    highlighted = hastChildrenToReact(tree.children as unknown as HastNode[]);
+  } catch {
+    highlighted = code;
+  }
+
+  return (
+    <pre className="bg-[#111113] border border-dark-border rounded-lg p-4 overflow-x-auto">
+      <code className="text-sm font-mono">{highlighted}</code>
+    </pre>
+  );
+}
+
+interface HastText { type: 'text'; value: string }
+interface HastElement {
+  type: 'element';
+  tagName: string;
+  properties?: { className?: string[] };
+  children?: HastNode[];
+}
+type HastNode = HastText | HastElement;
+
+function hastChildrenToReact(children: HastNode[]): React.ReactNode[] {
+  return children.map((node, i) => {
+    if (node.type === 'text') return node.value;
+    if (node.type === 'element') {
+      const className = node.properties?.className?.join(' ');
+      return createElement(
+        node.tagName,
+        { key: i, className },
+        node.children ? hastChildrenToReact(node.children) : undefined,
+      );
+    }
+    return null;
+  });
 }
 
 function HeaderBlock({ level, text }: { level: number; text: string }) {

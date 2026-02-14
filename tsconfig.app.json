@@ -12,17 +12,6 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
-    "paths": {
-      "@editorjs/editorjs": ["./src/types/editorjs.d.ts"],
-      "@editorjs/header": ["./src/types/editorjs.d.ts"],
-      "@editorjs/list": ["./src/types/editorjs.d.ts"],
-      "@editorjs/image": ["./src/types/editorjs.d.ts"],
-      "@editorjs/code": ["./src/types/editorjs.d.ts"],
-      "@editorjs/quote": ["./src/types/editorjs.d.ts"],
-      "@editorjs/delimiter": ["./src/types/editorjs.d.ts"],
-      "@editorjs/inline-code": ["./src/types/editorjs.d.ts"],
-      "@editorjs/marker": ["./src/types/editorjs.d.ts"]
-    },
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",

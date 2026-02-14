@@ -1,4 +1,5 @@
-import type { EditorJSData } from '../types';
+import type { BlogContent, EditorJSData, TiptapNode } from '../types';
+import { isEditorJSContent, isTiptapContent } from './blogContent';
 
 export function generateSlug(title: string): string {
   return title
@@ -10,7 +11,17 @@ export function generateSlug(title: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
-export function calculateReadTime(content: EditorJSData): number {
+export function calculateReadTime(content: BlogContent): number {
+  if (isEditorJSContent(content)) {
+    return calculateReadTimeEditorJS(content);
+  }
+  if (isTiptapContent(content)) {
+    return calculateReadTimeTiptap(content.content);
+  }
+  return 1;
+}
+
+function calculateReadTimeEditorJS(content: EditorJSData): number {
   let wordCount = 0;
   let imageCount = 0;
   let codeBlockCount = 0;
@@ -27,7 +38,6 @@ export function calculateReadTime(content: EditorJSData): number {
       case 'list': {
         const items = (block.data.items as unknown[]) || [];
         for (const item of items) {
-          // Handle both string items and { content: string, items: [] } objects
           const raw = typeof item === 'string'
             ? item
             : (item && typeof item === 'object' && 'content' in item)
@@ -47,7 +57,31 @@ export function calculateReadTime(content: EditorJSData): number {
     }
   }
 
-  // 200 words per minute + 10s per image + 30s per code block
+  const minutes = wordCount / 200 + (imageCount * 10) / 60 + (codeBlockCount * 30) / 60;
+  return Math.max(1, Math.round(minutes));
+}
+
+function calculateReadTimeTiptap(nodes: TiptapNode[]): number {
+  let wordCount = 0;
+  let imageCount = 0;
+  let codeBlockCount = 0;
+
+  function walk(nodeList: TiptapNode[]) {
+    for (const node of nodeList) {
+      if (node.type === 'image') {
+        imageCount++;
+      } else if (node.type === 'codeBlock') {
+        codeBlockCount++;
+      } else if (node.text) {
+        wordCount += node.text.split(/\s+/).filter(Boolean).length;
+      }
+      if (node.content) {
+        walk(node.content);
+      }
+    }
+  }
+
+  walk(nodes);
   const minutes = wordCount / 200 + (imageCount * 10) / 60 + (codeBlockCount * 30) / 60;
   return Math.max(1, Math.round(minutes));
 }
@@ -58,18 +92,53 @@ export interface TocItem {
   level: number;
 }
 
-export function extractTableOfContents(content: EditorJSData): TocItem[] {
-  return content.blocks
-    .filter((block) => block.type === 'header')
-    .map((block) => {
-      const text = String(block.data.text || '').replace(/<[^>]*>/g, '');
-      const level = (block.data.level as number) || 2;
-      const id = text
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-');
-      return { id, text, level };
-    });
+export function extractTableOfContents(content: BlogContent): TocItem[] {
+  if (isEditorJSContent(content)) {
+    return content.blocks
+      .filter((block) => block.type === 'header')
+      .map((block) => {
+        const text = String(block.data.text || '').replace(/<[^>]*>/g, '');
+        const level = (block.data.level as number) || 2;
+        const id = text
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-');
+        return { id, text, level };
+      });
+  }
+
+  if (isTiptapContent(content)) {
+    const items: TocItem[] = [];
+    function walk(nodes: TiptapNode[]) {
+      for (const node of nodes) {
+        if (node.type === 'heading') {
+          const text = getPlainText([node]);
+          const level = (node.attrs?.level as number) || 2;
+          const id = text
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-');
+          items.push({ id, text, level });
+        }
+        if (node.content) {
+          walk(node.content);
+        }
+      }
+    }
+    walk(content.content);
+    return items;
+  }
+
+  return [];
+}
+
+export function getPlainText(nodes: TiptapNode[]): string {
+  let text = '';
+  for (const node of nodes) {
+    if (node.text) text += node.text;
+    if (node.content) text += getPlainText(node.content);
+  }
+  return text;
 }
 
 export function formatBlogDate(dateString: string): string {

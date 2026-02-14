@@ -168,12 +168,33 @@ export interface EditorJSData {
   version?: string;
 }
 
+// Tiptap JSON types
+export interface TiptapMark {
+  type: string;
+  attrs?: Record<string, unknown>;
+}
+
+export interface TiptapNode {
+  type: string;
+  attrs?: Record<string, unknown>;
+  content?: TiptapNode[];
+  marks?: TiptapMark[];
+  text?: string;
+}
+
+export interface TiptapDoc {
+  type: 'doc';
+  content: TiptapNode[];
+}
+
+export type BlogContent = EditorJSData | TiptapDoc;
+
 export interface BlogPost {
   id: string;
   title: string;
   slug: string;
   excerpt: string;
-  content: EditorJSData;
+  content: BlogContent;
   cover_image_url: string | null;
   category: BlogCategory;
   tags: string[];
@@ -188,7 +209,7 @@ export interface BlogPost {
 export interface BlogPostFormData {
   title: string;
   excerpt: string;
-  content: EditorJSData;
+  content: BlogContent;
   cover_image_url: string | null;
   category: BlogCategory;
   tags: string[];

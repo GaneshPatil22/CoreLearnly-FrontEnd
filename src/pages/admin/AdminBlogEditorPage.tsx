@@ -1,11 +1,13 @@
 import { useState, useRef, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import EditorJS from '@editorjs/editorjs';
+import type { Editor } from '@tiptap/react';
 import { useBlogAdmin, useBlogPost } from '../../hooks/admin/useBlogAdmin';
 import SEO from '../../components/common/SEO';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import { BLOG_CATEGORIES } from '../../types';
-import type { BlogCategory, BlogPostFormData, EditorJSData } from '../../types';
+import type { BlogCategory, BlogPostFormData, TiptapDoc } from '../../types';
+import { isEditorJSContent } from '../../utils/blogContent';
+import { convertEditorJSToTiptap } from '../../utils/editorjsToTiptap';
 
 const AdminBlogEditorPage = () => {
   const { postId } = useParams<{ postId: string }>();
@@ -47,7 +49,7 @@ function BlogEditorForm({
 }) {
   const { createPost, updatePost, uploadImage } = useBlogAdmin();
 
-  const editorRef = useRef<EditorJS | null>(null);
+  const editorRef = useRef<Editor | null>(null);
   const [title, setTitle] = useState(existingPost?.title || '');
   const [excerpt, setExcerpt] = useState(existingPost?.excerpt || '');
   const [coverImageUrl, setCoverImageUrl] = useState(existingPost?.cover_image_url || '');
@@ -57,6 +59,15 @@ function BlogEditorForm({
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [editorReady, setEditorReady] = useState(false);
+
+  // Convert existing EditorJS content to Tiptap format for editing
+  const initialTiptapContent: TiptapDoc | undefined = (() => {
+    if (!existingPost?.content) return undefined;
+    if (isEditorJSContent(existingPost.content)) {
+      return convertEditorJSToTiptap(existingPost.content);
+    }
+    return existingPost.content as TiptapDoc;
+  })();
 
   const handleUploadImage = useCallback(
     async (file: File) => {
@@ -83,15 +94,9 @@ function BlogEditorForm({
     setSaving(true);
     setSaveError(null);
 
-    let content: EditorJSData = { blocks: [] };
+    let content: TiptapDoc = { type: 'doc', content: [{ type: 'paragraph' }] };
     if (editorRef.current && editorReady) {
-      try {
-        content = (await editorRef.current.save()) as EditorJSData;
-      } catch {
-        setSaveError('Failed to save editor content');
-        setSaving(false);
-        return;
-      }
+      content = editorRef.current.getJSON() as TiptapDoc;
     }
 
     const tags = tagsInput
@@ -128,13 +133,13 @@ function BlogEditorForm({
     setSaving(false);
   };
 
-  // Lazy import BlogEditor to avoid loading Editor.js on every admin page
-  const BlogEditor = useRef<typeof import('../../components/admin/BlogEditor').default | null>(null);
+  // Lazy import TiptapEditor to avoid loading Tiptap on every admin page
+  const TiptapEditor = useRef<typeof import('../../components/admin/TiptapEditor').default | null>(null);
   const [editorLoaded, setEditorLoaded] = useState(false);
 
   if (!editorLoaded) {
-    import('../../components/admin/BlogEditor').then((mod) => {
-      BlogEditor.current = mod.default;
+    import('../../components/admin/TiptapEditor').then((mod) => {
+      TiptapEditor.current = mod.default;
       setEditorLoaded(true);
     });
   }
@@ -208,9 +213,9 @@ function BlogEditorForm({
             <label className="block text-sm font-medium text-dark-text-secondary mb-2">
               Content
             </label>
-            {editorLoaded && BlogEditor.current ? (
-              <BlogEditor.current
-                initialData={existingPost?.content}
+            {editorLoaded && TiptapEditor.current ? (
+              <TiptapEditor.current
+                initialContent={initialTiptapContent}
                 onReady={() => setEditorReady(true)}
                 onUploadImage={handleUploadImage}
                 editorRef={editorRef}
