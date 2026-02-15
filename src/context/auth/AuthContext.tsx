@@ -25,14 +25,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    // Listen for auth changes
+    // Listen for auth changes - INITIAL_SESSION fires first with the
+    // restored session (after token refresh if needed), then SIGNED_IN,
+    // SIGNED_OUT, TOKEN_REFRESHED etc. for subsequent changes.
+    // We do NOT call getSession() separately to avoid a race condition
+    // where it resolves with null before the token refresh completes,
+    // which would cause route guards to redirect prematurely.
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
         setSession(session);

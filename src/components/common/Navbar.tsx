@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollTo } from '../../hooks/useScrollTo';
 import { trackButtonClick } from '../../utils/analytics';
+import { useAuth } from '../../context/auth/AuthContext';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollToSection } = useScrollTo();
+  const { user, isAdmin } = useAuth();
 
   // Detect scroll for navbar background change
   useEffect(() => {
@@ -95,21 +97,32 @@ const Navbar = () => {
               Download Syllabus
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
             </button>
-            <Link
-              to="/login"
-              className="text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium"
-            >
-              Login
-            </Link>
-            <Link to="/apply" onClick={() => trackButtonClick('apply_now', 'navbar')}>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary"
+            {user ? (
+              <Link
+                to={isAdmin ? '/admin' : '/dashboard'}
+                className="text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium"
               >
-                Apply Now
-              </motion.button>
-            </Link>
+                {isAdmin ? 'Admin Panel' : 'Dashboard'}
+              </Link>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium"
+                >
+                  Login
+                </Link>
+                <Link to="/apply" onClick={() => trackButtonClick('apply_now', 'navbar')}>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="btn-primary"
+                  >
+                    Apply Now
+                  </motion.button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -193,29 +206,47 @@ const Navbar = () => {
                 >
                   Download Syllabus
                 </motion.button>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (navLinks.length + 1) * 0.1 }}
-                >
-                  <Link
-                    to="/login"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block w-full text-left px-4 py-3 text-dark-text-secondary hover:text-white hover:bg-dark-card rounded-lg transition-all"
+                {user ? (
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (navLinks.length + 1) * 0.1 }}
                   >
-                    Login
-                  </Link>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (navLinks.length + 2) * 0.1 }}
-                  className="px-4 pt-2"
-                >
-                  <Link to="/apply" onClick={() => { trackButtonClick('apply_now', 'navbar'); setIsMobileMenuOpen(false); }}>
-                    <button className="btn-primary w-full">Apply Now</button>
-                  </Link>
-                </motion.div>
+                    <Link
+                      to={isAdmin ? '/admin' : '/dashboard'}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block w-full text-left px-4 py-3 text-dark-text-secondary hover:text-white hover:bg-dark-card rounded-lg transition-all"
+                    >
+                      {isAdmin ? 'Admin Panel' : 'Dashboard'}
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <>
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: (navLinks.length + 1) * 0.1 }}
+                    >
+                      <Link
+                        to="/login"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block w-full text-left px-4 py-3 text-dark-text-secondary hover:text-white hover:bg-dark-card rounded-lg transition-all"
+                      >
+                        Login
+                      </Link>
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: (navLinks.length + 2) * 0.1 }}
+                      className="px-4 pt-2"
+                    >
+                      <Link to="/apply" onClick={() => { trackButtonClick('apply_now', 'navbar'); setIsMobileMenuOpen(false); }}>
+                        <button className="btn-primary w-full">Apply Now</button>
+                      </Link>
+                    </motion.div>
+                  </>
+                )}
               </div>
             </motion.div>
           )}

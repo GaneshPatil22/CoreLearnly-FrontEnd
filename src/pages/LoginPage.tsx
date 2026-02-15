@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Navigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/auth/AuthContext';
 import SEO from '../components/common/SEO';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -11,10 +12,23 @@ const LoginPage = () => {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [resetEmailSent, setResetEmailSent] = useState(false);
 
-  const { signIn, resetPassword } = useAuth();
+  const { user, isAdmin, loading: authLoading, signIn, resetPassword } = useAuth();
   const navigate = useNavigate();
 
   const ADMIN_EMAIL = 'ganesh@corelearnly.com';
+
+  // Redirect authenticated users away from login page
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-dark-bg flex items-center justify-center">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (user) {
+    return <Navigate to={isAdmin ? '/admin' : '/dashboard'} replace />;
+  }
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
