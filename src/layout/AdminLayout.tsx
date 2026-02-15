@@ -21,6 +21,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     { label: 'Sessions', path: '/admin/sessions' },
     { label: 'Students', path: '/admin/students' },
     { label: 'Blog', path: '/admin/blog' },
+    { label: 'Patterns', path: '/admin/patterns' },
+    { label: 'Roadmap', path: '/admin/roadmap' },
   ];
 
   const isActive = (path: string) => {

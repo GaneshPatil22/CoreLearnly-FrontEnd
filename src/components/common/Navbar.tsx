@@ -40,6 +40,8 @@ const Navbar = () => {
     { label: 'Curriculum', sectionId: 'curriculum' },
     { label: 'Projects', sectionId: 'projects' },
     { label: 'Mentors', sectionId: 'mentors' },
+    { label: 'Patterns', path: '/patterns' },
+    { label: 'Roadmap', path: '/roadmap' },
     { label: 'Blog', path: '/blog' },
   ];
 

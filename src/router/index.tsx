@@ -14,6 +14,7 @@ import NotFoundPage from '../pages/NotFoundPage';
 import LoginPage from '../pages/LoginPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
 import DashboardPage from '../pages/DashboardPage';
+import DashboardLayout from '../layout/DashboardLayout';
 import ProtectedRoute from '../components/auth/ProtectedRoute';
 import AdminRoute from '../components/auth/AdminRoute';
 import AdminDashboardPage from '../pages/admin/AdminDashboardPage';
@@ -21,8 +22,14 @@ import AdminSessionsPage from '../pages/admin/AdminSessionsPage';
 import AdminStudentsPage from '../pages/admin/AdminStudentsPage';
 import AdminBlogPostsPage from '../pages/admin/AdminBlogPostsPage';
 import AdminBlogEditorPage from '../pages/admin/AdminBlogEditorPage';
+import AdminPatternsPage from '../pages/admin/AdminPatternsPage';
+import AdminPatternEditorPage from '../pages/admin/AdminPatternEditorPage';
+import AdminRoadmapPage from '../pages/admin/AdminRoadmapPage';
 import BlogListPage from '../pages/BlogListPage';
 import BlogPostPage from '../pages/BlogPostPage';
+import PatternsListPage from '../pages/PatternsListPage';
+import PatternDetailPage from '../pages/PatternDetailPage';
+import RoadmapPage from '../pages/RoadmapPage';
 
 export const router = createBrowserRouter([
   {
@@ -75,6 +82,20 @@ export const router = createBrowserRouter([
     path: '/blog/:slug',
     element: <MainLayout><BlogPostPage /></MainLayout>,
   },
+  // Pattern routes
+  {
+    path: '/patterns',
+    element: <MainLayout><PatternsListPage /></MainLayout>,
+  },
+  {
+    path: '/patterns/:slug',
+    element: <MainLayout><PatternDetailPage /></MainLayout>,
+  },
+  // Roadmap route
+  {
+    path: '/roadmap',
+    element: <MainLayout><RoadmapPage /></MainLayout>,
+  },
   // Auth routes (no MainLayout - standalone pages)
   {
     path: '/login',
@@ -88,6 +109,26 @@ export const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <ProtectedRoute><ErrorBoundary><DashboardPage /></ErrorBoundary></ProtectedRoute>,
+  },
+  {
+    path: '/dashboard/patterns',
+    element: <ProtectedRoute><DashboardLayout><PatternsListPage /></DashboardLayout></ProtectedRoute>,
+  },
+  {
+    path: '/dashboard/patterns/:slug',
+    element: <ProtectedRoute><DashboardLayout><PatternDetailPage /></DashboardLayout></ProtectedRoute>,
+  },
+  {
+    path: '/dashboard/roadmap',
+    element: <ProtectedRoute><DashboardLayout><RoadmapPage /></DashboardLayout></ProtectedRoute>,
+  },
+  {
+    path: '/dashboard/blog',
+    element: <ProtectedRoute><DashboardLayout><BlogListPage /></DashboardLayout></ProtectedRoute>,
+  },
+  {
+    path: '/dashboard/blog/:slug',
+    element: <ProtectedRoute><DashboardLayout><BlogPostPage /></DashboardLayout></ProtectedRoute>,
   },
   // Admin routes
   {
@@ -113,6 +154,22 @@ export const router = createBrowserRouter([
   {
     path: '/admin/blog/edit/:postId',
     element: <AdminRoute><AdminLayout><AdminBlogEditorPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/patterns',
+    element: <AdminRoute><AdminLayout><AdminPatternsPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/patterns/new',
+    element: <AdminRoute><AdminLayout><AdminPatternEditorPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/patterns/edit/:patternId',
+    element: <AdminRoute><AdminLayout><AdminPatternEditorPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/roadmap',
+    element: <AdminRoute><AdminLayout><AdminRoadmapPage /></AdminLayout></AdminRoute>,
   },
   {
     path: '*',

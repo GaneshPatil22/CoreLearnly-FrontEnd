@@ -27,6 +27,25 @@ const DashboardNavbar = () => {
             </span>
           </Link>
 
+          {/* Center Links */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link to="/dashboard" className="text-sm text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium">
+              Dashboard
+            </Link>
+            <Link to="/dashboard/patterns" className="text-sm text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium">
+              Patterns
+            </Link>
+            <Link to="/dashboard/roadmap" className="text-sm text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium">
+              Roadmap
+            </Link>
+            <Link to="/dashboard/blog" className="text-sm text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium">
+              Blog
+            </Link>
+            <Link to="/" className="text-sm text-dark-text-muted hover:text-dark-text-secondary transition-colors duration-200">
+              Home
+            </Link>
+          </div>
+
           {/* Right Side */}
           <div className="flex items-center gap-4">
             <span className="text-dark-text-secondary text-sm hidden sm:inline">

@@ -1,4 +1,4 @@
-import type { BlogPost } from '../types';
+import type { BlogPost, DSAPattern } from '../types';
 
 const BASE_URL = 'https://corelearnly.com';
 
@@ -154,5 +154,50 @@ export function buildBreadcrumbSchema(
       name: item.name,
       item: item.url,
     })),
+  };
+}
+
+export function buildPatternSchema(pattern: DSAPattern) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: pattern.title,
+    description: pattern.excerpt,
+    author: {
+      '@type': 'Person',
+      name: pattern.author_name,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CoreLearnly',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/favicon.svg`,
+      },
+    },
+    datePublished: pattern.published_at || pattern.created_at,
+    dateModified: pattern.updated_at,
+    url: `${BASE_URL}/patterns/${pattern.slug}`,
+    mainEntityOfPage: `${BASE_URL}/patterns/${pattern.slug}`,
+    ...(pattern.cover_image_url && { image: pattern.cover_image_url }),
+    ...(pattern.tags.length > 0 && { keywords: pattern.tags.join(', ') }),
+    timeRequired: `PT${pattern.read_time_minutes}M`,
+    proficiencyLevel: pattern.difficulty === 'easy' ? 'Beginner' : pattern.difficulty === 'medium' ? 'Intermediate' : 'Advanced',
+  };
+}
+
+export function buildPatternListSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'DSA Pattern Library',
+    description: 'Curated collection of Data Structures & Algorithms patterns for interview preparation.',
+    url: `${BASE_URL}/patterns`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'CoreLearnly',
+      url: BASE_URL,
+    },
   };
 }

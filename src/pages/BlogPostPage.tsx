@@ -10,11 +10,13 @@ import SEO from '../components/common/SEO';
 import JsonLd from '../components/common/JsonLd';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import { trackEvent } from '../utils/analytics';
+import { useLinkPrefix } from '../hooks/useDashboardContext';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { post, loading, error } = useBlogPostBySlug(slug);
   const { posts: allPosts } = useBlogPosts();
+  const linkPrefix = useLinkPrefix();
 
   const tocItems = useMemo(() => {
     if (!post) return [];
@@ -48,7 +50,7 @@ const BlogPostPage = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-white mb-2">Post not found</h1>
           <p className="text-dark-text-muted mb-4">This article doesn't exist or has been removed.</p>
-          <Link to="/blog" className="text-primary hover:underline">
+          <Link to={`${linkPrefix}/blog`} className="text-primary hover:underline">
             Back to blog
           </Link>
         </div>
@@ -155,7 +157,7 @@ const BlogPostPage = () => {
         {/* Back link */}
         <div className="max-w-3xl mx-auto mt-16 pt-8 border-t border-dark-border">
           <Link
-            to="/blog"
+            to={`${linkPrefix}/blog`}
             className="text-primary hover:underline text-sm flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,7 +175,7 @@ const BlogPostPage = () => {
               {relatedPosts.map((related) => (
                 <Link
                   key={related.id}
-                  to={`/blog/${related.slug}`}
+                  to={`${linkPrefix}/blog/${related.slug}`}
                   className="block group"
                 >
                   <div className="card hover:border-primary/50 transition-all duration-300">

@@ -102,6 +102,55 @@ const DashboardPage = () => {
               session={data.upcomingSession}
               isFreeUser={isFreeUser}
             />
+
+            {/* Quick Links - Patterns & Roadmap */}
+            <div className="card">
+              <h3 className="text-lg font-semibold text-dark-text-primary mb-3">Quick Links</h3>
+              <div className="space-y-2">
+                <Link
+                  to="/dashboard/roadmap"
+                  className="flex items-center gap-3 p-3 bg-dark-bg rounded-lg hover:bg-primary/10 transition-colors group"
+                >
+                  <div className="w-9 h-9 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-dark-text-primary group-hover:text-white transition-colors">Interview Prep Roadmap</p>
+                    <p className="text-xs text-dark-text-muted">Follow the learning path</p>
+                  </div>
+                </Link>
+                <Link
+                  to="/dashboard/patterns"
+                  className="flex items-center gap-3 p-3 bg-dark-bg rounded-lg hover:bg-primary/10 transition-colors group"
+                >
+                  <div className="w-9 h-9 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover:bg-purple-500/30 transition-colors">
+                    <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-dark-text-primary group-hover:text-white transition-colors">DSA Pattern Library</p>
+                    <p className="text-xs text-dark-text-muted">Browse all patterns</p>
+                  </div>
+                </Link>
+                <Link
+                  to="/dashboard/blog"
+                  className="flex items-center gap-3 p-3 bg-dark-bg rounded-lg hover:bg-primary/10 transition-colors group"
+                >
+                  <div className="w-9 h-9 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
+                    <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-dark-text-primary group-hover:text-white transition-colors">Blog</p>
+                    <p className="text-xs text-dark-text-muted">Read articles & guides</p>
+                  </div>
+                </Link>
+              </div>
+            </div>
           </div>
 
           {/* Right Column - Modules */}

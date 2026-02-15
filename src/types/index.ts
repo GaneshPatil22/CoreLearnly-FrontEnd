@@ -215,3 +215,145 @@ export interface BlogPostFormData {
   tags: string[];
   status: 'draft' | 'published';
 }
+
+// DSA Pattern Library Types
+export type PatternCategory =
+  | 'Arrays'
+  | 'Strings'
+  | 'Linked Lists'
+  | 'Stacks & Queues'
+  | 'Trees'
+  | 'Graphs'
+  | 'Dynamic Programming'
+  | 'Searching'
+  | 'Sorting'
+  | 'Recursion & Backtracking'
+  | 'Greedy'
+  | 'Two Pointers'
+  | 'Sliding Window'
+  | 'Hashing'
+  | 'Bit Manipulation'
+  | 'Math';
+
+export const PATTERN_CATEGORIES: PatternCategory[] = [
+  'Arrays',
+  'Strings',
+  'Linked Lists',
+  'Stacks & Queues',
+  'Trees',
+  'Graphs',
+  'Dynamic Programming',
+  'Searching',
+  'Sorting',
+  'Recursion & Backtracking',
+  'Greedy',
+  'Two Pointers',
+  'Sliding Window',
+  'Hashing',
+  'Bit Manipulation',
+  'Math',
+];
+
+export type PatternDifficulty = 'easy' | 'medium' | 'hard';
+export type AccessLevel = 'free' | 'preview' | 'full';
+export type PhaseLevel = 'beginner' | 'intermediate' | 'advanced';
+
+export interface DSAPattern {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  category: PatternCategory;
+  difficulty: PatternDifficulty;
+  when_to_use: string;
+  template_code: string;
+  template_language: string;
+  time_complexity: string;
+  space_complexity: string;
+  example_problems: string[];
+  content: TiptapDoc;
+  cover_image_url: string | null;
+  tags: string[];
+  status: 'draft' | 'published';
+  access_level: AccessLevel;
+  display_order: number;
+  read_time_minutes: number;
+  author_name: string;
+  published_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface DSAPatternFormData {
+  title: string;
+  excerpt: string;
+  category: PatternCategory;
+  difficulty: PatternDifficulty;
+  when_to_use: string;
+  template_code: string;
+  template_language: string;
+  time_complexity: string;
+  space_complexity: string;
+  example_problems: string[];
+  content: TiptapDoc;
+  cover_image_url: string | null;
+  tags: string[];
+  status: 'draft' | 'published';
+  access_level: AccessLevel;
+  display_order: number;
+}
+
+// Roadmap Types
+export interface RoadmapPhase {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  phase_level: PhaseLevel;
+  display_order: number;
+  icon_name: string;
+  status: 'draft' | 'published';
+  created_at: string;
+  updated_at: string;
+}
+
+export interface RoadmapNode {
+  id: string;
+  phase_id: string;
+  title: string;
+  slug: string;
+  description: string;
+  display_order: number;
+  pattern_ids: string[];
+  access_level: AccessLevel;
+  status: 'draft' | 'published';
+  created_at: string;
+  updated_at: string;
+}
+
+export interface RoadmapPhaseFormData {
+  title: string;
+  description: string;
+  phase_level: PhaseLevel;
+  display_order: number;
+  icon_name: string;
+  status: 'draft' | 'published';
+}
+
+export interface RoadmapNodeFormData {
+  phase_id: string;
+  title: string;
+  description: string;
+  display_order: number;
+  pattern_ids: string[];
+  access_level: AccessLevel;
+  status: 'draft' | 'published';
+}
+
+export interface UserPatternProgress {
+  id: string;
+  user_id: string;
+  pattern_id: string;
+  is_completed: boolean;
+  completed_at: string | null;
+}
