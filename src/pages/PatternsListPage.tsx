@@ -65,10 +65,10 @@ const PatternsListPage = () => {
             Master the most common coding interview patterns with template code, when-to-use guides, and complexity analysis.
           </p>
           <Link
-            to={`${linkPrefix}/roadmap`}
+            to={`${linkPrefix}/roadmaps`}
             className="text-primary hover:underline text-sm inline-flex items-center gap-1"
           >
-            View Interview Prep Roadmap
+            View Interview Prep Roadmaps
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

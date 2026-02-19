@@ -1,4 +1,4 @@
-import type { BlogPost, DSAPattern } from '../types';
+import type { BlogPost, DSAPattern, Roadmap } from '../types';
 
 const BASE_URL = 'https://corelearnly.com';
 
@@ -199,5 +199,39 @@ export function buildPatternListSchema() {
       name: 'CoreLearnly',
       url: BASE_URL,
     },
+  };
+}
+
+export function buildRoadmapListSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Interview Prep Roadmaps',
+    description: 'Structured learning paths for coding interview preparation covering DSA, system design, and more.',
+    url: `${BASE_URL}/roadmaps`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'CoreLearnly',
+      url: BASE_URL,
+    },
+  };
+}
+
+export function buildRoadmapSchema(roadmap: Roadmap) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: roadmap.title,
+    description: roadmap.description,
+    url: `${BASE_URL}/roadmaps/${roadmap.slug}`,
+    provider: {
+      '@type': 'Organization',
+      name: 'CoreLearnly',
+      url: BASE_URL,
+    },
+    ...(roadmap.estimated_duration && { timeRequired: roadmap.estimated_duration }),
+    proficiencyLevel: roadmap.difficulty_level === 'beginner' ? 'Beginner' :
+      roadmap.difficulty_level === 'intermediate' ? 'Intermediate' :
+      roadmap.difficulty_level === 'advanced' ? 'Advanced' : 'Mixed',
   };
 }

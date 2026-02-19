@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { useRoadmapAdmin } from '../../hooks/admin/useRoadmapAdmin';
 import { getPhaseColor } from '../../utils/pattern';
 import SEO from '../../components/common/SEO';
@@ -6,6 +7,7 @@ import LoadingSpinner from '../../components/common/LoadingSpinner';
 import type { PhaseLevel, AccessLevel, RoadmapPhaseFormData, RoadmapNodeFormData, RoadmapPhase, RoadmapNode } from '../../types';
 
 const AdminRoadmapPage = () => {
+  const { roadmapId } = useParams<{ roadmapId: string }>();
   const {
     phases,
     nodes,
@@ -18,7 +20,7 @@ const AdminRoadmapPage = () => {
     createNode,
     updateNode,
     deleteNode,
-  } = useRoadmapAdmin();
+  } = useRoadmapAdmin(roadmapId);
 
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set());
   const [editingPhase, setEditingPhase] = useState<RoadmapPhase | null>(null);
@@ -64,16 +66,19 @@ const AdminRoadmapPage = () => {
   return (
     <div className="space-y-8">
       <SEO
-        title="Roadmap Management"
-        description="Manage interview prep roadmap"
-        path="/admin/roadmap"
+        title="Manage Phases & Nodes"
+        description="Manage roadmap phases and nodes"
+        path={`/admin/roadmaps/${roadmapId}/manage`}
         noIndex
       />
 
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Roadmap</h1>
+          <Link to="/admin/roadmaps" className="text-sm text-dark-text-muted hover:text-white transition-colors">
+            &larr; Back to Roadmaps
+          </Link>
+          <h1 className="text-2xl font-bold text-white mt-1">Manage Phases & Nodes</h1>
           <p className="text-dark-text-muted mt-1">
             {phases.length} phases &middot; {nodes.length} nodes
           </p>
@@ -87,9 +92,10 @@ const AdminRoadmapPage = () => {
       </div>
 
       {/* Phase Form Modal */}
-      {showPhaseForm && (
+      {showPhaseForm && roadmapId && (
         <PhaseFormCard
           existing={editingPhase}
+          roadmapId={roadmapId}
           onSave={async (formData) => {
             if (editingPhase) {
               await updatePhase(editingPhase.id, formData);
@@ -251,10 +257,12 @@ const AdminRoadmapPage = () => {
 // Phase form inline card
 function PhaseFormCard({
   existing,
+  roadmapId,
   onSave,
   onCancel,
 }: {
   existing: RoadmapPhase | null;
+  roadmapId: string;
   onSave: (data: RoadmapPhaseFormData) => Promise<void>;
   onCancel: () => void;
 }) {
@@ -270,6 +278,7 @@ function PhaseFormCard({
     if (!title.trim()) return;
     setSaving(true);
     await onSave({
+      roadmap_id: roadmapId,
       title: title.trim(),
       description: description.trim(),
       phase_level: phaseLevel,

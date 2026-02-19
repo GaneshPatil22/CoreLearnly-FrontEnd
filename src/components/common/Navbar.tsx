@@ -41,7 +41,7 @@ const Navbar = () => {
     { label: 'Projects', sectionId: 'projects' },
     { label: 'Mentors', sectionId: 'mentors' },
     { label: 'Patterns', path: '/patterns' },
-    { label: 'Roadmap', path: '/roadmap' },
+    { label: 'Roadmaps', path: '/roadmaps' },
     { label: 'Blog', path: '/blog' },
   ];
 

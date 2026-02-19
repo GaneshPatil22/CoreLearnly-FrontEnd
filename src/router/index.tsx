@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import AdminLayout from '../layout/AdminLayout';
 import ErrorBoundary from '../components/common/ErrorBoundary';
@@ -25,10 +25,13 @@ import AdminBlogEditorPage from '../pages/admin/AdminBlogEditorPage';
 import AdminPatternsPage from '../pages/admin/AdminPatternsPage';
 import AdminPatternEditorPage from '../pages/admin/AdminPatternEditorPage';
 import AdminRoadmapPage from '../pages/admin/AdminRoadmapPage';
+import AdminRoadmapsPage from '../pages/admin/AdminRoadmapsPage';
+import AdminRoadmapEditorPage from '../pages/admin/AdminRoadmapEditorPage';
 import BlogListPage from '../pages/BlogListPage';
 import BlogPostPage from '../pages/BlogPostPage';
 import PatternsListPage from '../pages/PatternsListPage';
 import PatternDetailPage from '../pages/PatternDetailPage';
+import RoadmapsListPage from '../pages/RoadmapsListPage';
 import RoadmapPage from '../pages/RoadmapPage';
 
 export const router = createBrowserRouter([
@@ -91,10 +94,19 @@ export const router = createBrowserRouter([
     path: '/patterns/:slug',
     element: <MainLayout><PatternDetailPage /></MainLayout>,
   },
-  // Roadmap route
+  // Roadmap routes
+  {
+    path: '/roadmaps',
+    element: <MainLayout><RoadmapsListPage /></MainLayout>,
+  },
+  {
+    path: '/roadmaps/:slug',
+    element: <MainLayout><RoadmapPage /></MainLayout>,
+  },
+  // Backward compat redirect
   {
     path: '/roadmap',
-    element: <MainLayout><RoadmapPage /></MainLayout>,
+    element: <Navigate to="/roadmaps" replace />,
   },
   // Auth routes (no MainLayout - standalone pages)
   {
@@ -119,8 +131,17 @@ export const router = createBrowserRouter([
     element: <ProtectedRoute><DashboardLayout><PatternDetailPage /></DashboardLayout></ProtectedRoute>,
   },
   {
-    path: '/dashboard/roadmap',
+    path: '/dashboard/roadmaps',
+    element: <ProtectedRoute><DashboardLayout><RoadmapsListPage /></DashboardLayout></ProtectedRoute>,
+  },
+  {
+    path: '/dashboard/roadmaps/:slug',
     element: <ProtectedRoute><DashboardLayout><RoadmapPage /></DashboardLayout></ProtectedRoute>,
+  },
+  // Backward compat redirect
+  {
+    path: '/dashboard/roadmap',
+    element: <Navigate to="/dashboard/roadmaps" replace />,
   },
   {
     path: '/dashboard/blog',
@@ -167,9 +188,27 @@ export const router = createBrowserRouter([
     path: '/admin/patterns/edit/:patternId',
     element: <AdminRoute><AdminLayout><AdminPatternEditorPage /></AdminLayout></AdminRoute>,
   },
+  // Roadmap admin routes
+  {
+    path: '/admin/roadmaps',
+    element: <AdminRoute><AdminLayout><AdminRoadmapsPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/roadmaps/new',
+    element: <AdminRoute><AdminLayout><AdminRoadmapEditorPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/roadmaps/edit/:roadmapId',
+    element: <AdminRoute><AdminLayout><AdminRoadmapEditorPage /></AdminLayout></AdminRoute>,
+  },
+  {
+    path: '/admin/roadmaps/:roadmapId/manage',
+    element: <AdminRoute><AdminLayout><AdminRoadmapPage /></AdminLayout></AdminRoute>,
+  },
+  // Backward compat redirect
   {
     path: '/admin/roadmap',
-    element: <AdminRoute><AdminLayout><AdminRoadmapPage /></AdminLayout></AdminRoute>,
+    element: <Navigate to="/admin/roadmaps" replace />,
   },
   {
     path: '*',

@@ -35,8 +35,8 @@ const DashboardNavbar = () => {
             <Link to="/dashboard/patterns" className="text-sm text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium">
               Patterns
             </Link>
-            <Link to="/dashboard/roadmap" className="text-sm text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium">
-              Roadmap
+            <Link to="/dashboard/roadmaps" className="text-sm text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium">
+              Roadmaps
             </Link>
             <Link to="/dashboard/blog" className="text-sm text-dark-text-secondary hover:text-white transition-colors duration-200 font-medium">
               Blog

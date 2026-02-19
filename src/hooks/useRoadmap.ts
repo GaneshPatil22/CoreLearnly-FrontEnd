@@ -12,19 +12,25 @@ export interface RoadmapNodeWithPatterns extends RoadmapNode {
 }
 
 // Fetch published roadmap phases + nodes, enriched with pattern metadata
-export function useRoadmap() {
+export function useRoadmap(roadmapId: string | undefined) {
   const [phases, setPhases] = useState<RoadmapPhaseWithNodes[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchRoadmap = useCallback(async () => {
+    if (!roadmapId) {
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
 
-      // Fetch phases
+      // Fetch phases scoped to this roadmap
       const { data: phasesData, error: phasesError } = await supabase
         .from('roadmap_phases')
         .select('*')
+        .eq('roadmap_id', roadmapId)
         .eq('status', 'published')
         .order('display_order', { ascending: true });
 
@@ -83,7 +89,7 @@ export function useRoadmap() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [roadmapId]);
 
   useEffect(() => {
     fetchRoadmap();

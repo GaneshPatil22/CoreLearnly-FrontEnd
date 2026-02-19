@@ -304,8 +304,44 @@ export interface DSAPatternFormData {
 }
 
 // Roadmap Types
+export type RoadmapDifficulty = 'beginner' | 'intermediate' | 'advanced' | 'mixed';
+
+export interface Roadmap {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  cover_image_url: string | null;
+  icon_name: string;
+  gradient_from: string;
+  gradient_to: string;
+  difficulty_level: RoadmapDifficulty;
+  estimated_duration: string;
+  total_patterns: number;
+  status: 'draft' | 'published';
+  display_order: number;
+  is_featured: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface RoadmapFormData {
+  title: string;
+  description: string;
+  cover_image_url: string | null;
+  icon_name: string;
+  gradient_from: string;
+  gradient_to: string;
+  difficulty_level: RoadmapDifficulty;
+  estimated_duration: string;
+  status: 'draft' | 'published';
+  display_order: number;
+  is_featured: boolean;
+}
+
 export interface RoadmapPhase {
   id: string;
+  roadmap_id: string;
   title: string;
   slug: string;
   description: string;
@@ -332,6 +368,7 @@ export interface RoadmapNode {
 }
 
 export interface RoadmapPhaseFormData {
+  roadmap_id: string;
   title: string;
   description: string;
   phase_level: PhaseLevel;

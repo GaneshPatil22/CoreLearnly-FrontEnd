@@ -3,7 +3,7 @@ import { supabase } from '../../services/supabase/client';
 import type { RoadmapPhase, RoadmapPhaseFormData, RoadmapNode, RoadmapNodeFormData, DSAPattern } from '../../types';
 import { generateSlug } from '../../utils/blog';
 
-export function useRoadmapAdmin() {
+export function useRoadmapAdmin(roadmapId: string | undefined) {
   const [phases, setPhases] = useState<RoadmapPhase[]>([]);
   const [nodes, setNodes] = useState<RoadmapNode[]>([]);
   const [patterns, setPatterns] = useState<DSAPattern[]>([]);
@@ -11,11 +11,16 @@ export function useRoadmapAdmin() {
   const [error, setError] = useState<string | null>(null);
 
   const fetchAll = useCallback(async () => {
+    if (!roadmapId) {
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
 
       const [phasesRes, nodesRes, patternsRes] = await Promise.all([
-        supabase.from('roadmap_phases').select('*').order('display_order', { ascending: true }),
+        supabase.from('roadmap_phases').select('*').eq('roadmap_id', roadmapId).order('display_order', { ascending: true }),
         supabase.from('roadmap_nodes').select('*').order('display_order', { ascending: true }),
         supabase.from('dsa_patterns').select('id, title, slug, category, difficulty, status').eq('status', 'published').order('title', { ascending: true }),
       ]);
@@ -23,8 +28,12 @@ export function useRoadmapAdmin() {
       if (phasesRes.error) throw phasesRes.error;
       if (nodesRes.error) throw nodesRes.error;
 
-      setPhases((phasesRes.data as RoadmapPhase[]) || []);
-      setNodes((nodesRes.data as RoadmapNode[]) || []);
+      const fetchedPhases = (phasesRes.data as RoadmapPhase[]) || [];
+      const phaseIds = new Set(fetchedPhases.map((p) => p.id));
+      const scopedNodes = ((nodesRes.data as RoadmapNode[]) || []).filter((n) => phaseIds.has(n.phase_id));
+
+      setPhases(fetchedPhases);
+      setNodes(scopedNodes);
       setPatterns((patternsRes.data as DSAPattern[]) || []);
     } catch (err) {
       console.error('Roadmap admin fetch error:', err);
@@ -32,7 +41,7 @@ export function useRoadmapAdmin() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [roadmapId]);
 
   // Phase CRUD
   const createPhase = async (formData: RoadmapPhaseFormData) => {
@@ -43,6 +52,7 @@ export function useRoadmapAdmin() {
       const { error: insertError } = await supabase
         .from('roadmap_phases')
         .insert({
+          roadmap_id: formData.roadmap_id,
           title: formData.title,
           slug,
           description: formData.description,
@@ -70,6 +80,7 @@ export function useRoadmapAdmin() {
       const { error: updateError } = await supabase
         .from('roadmap_phases')
         .update({
+          roadmap_id: formData.roadmap_id,
           title: formData.title,
           slug,
           description: formData.description,
